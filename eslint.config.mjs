@@ -17,6 +17,23 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
+const normalizeRules = (rules) => {
+  const severityMap = {
+    0: 'off',
+    1: 'warn',
+    2: 'error',
+  };
+
+  return Object.fromEntries(
+    Object.entries(rules).map(([key, value]) => {
+      if (typeof value === 'number') {
+        return [key, severityMap[value] || value];
+      }
+      return [key, value];
+    })
+  );
+};
+
 const eslintConfig = [
   {
     ignores: ['dist', 'node_modules'],
@@ -40,15 +57,15 @@ const eslintConfig = [
       'react-compiler': reactCompiler,
     },
     rules: {
-      ...tseslint.configs.strictTypeChecked,
+      ...tseslint.configs.strictTypeChecked.rules,
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
       'react-compiler/react-compiler': 'error',
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
+      ...normalizeRules(react.configs.recommended.rules),
+      ...normalizeRules(react.configs['jsx-runtime'].rules),
     },
     settings: {
       react: {
