@@ -31,7 +31,7 @@ const eslintConfig = [
       globals: globals.browser,
       parserOptions: {
         project: './tsconfig.json',
-      }
+      },
     },
     plugins: {
       react,
