@@ -11,10 +11,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
       include: ['**/*.tsx'],
-      exclude: [
-        '**/node_modules/**',
-        '**/*.test.tsx',
-      ],
+      exclude: ['**/node_modules/**', '**/*.test.tsx'],
     },
   },
 });
