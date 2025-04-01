@@ -5,5 +5,8 @@
   "Header": {
     "Sign_In": "Sign In",
     "Sign_up": "Sign up"
+  },
+  "Footer": {
+    "Rights": "All rights reserved"
   }
 }

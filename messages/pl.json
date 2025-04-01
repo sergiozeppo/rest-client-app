@@ -5,5 +5,8 @@
   "Header": {
     "Sign_In": "Zaloguj się",
     "Sign_up": "Zarejestruj się"
+  },
+  "Footer": {
+    "Rights": "Wszelkie prawa zastrzeżone"
   }
 }
