@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Heder } from '@/components';
+import { Header, Footer } from '@/components';
 import { ReactNode } from 'react';
 import s from './App.module.scss';
 
@@ -39,8 +39,9 @@ export default async function LocaleLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <NextIntlClientProvider>
           <div className={s.app}>
-            <Heder />
+            <Header />
             {children}
+            <Footer />
           </div>
         </NextIntlClientProvider>
       </body>
