@@ -59,13 +59,11 @@ const eslintConfig = [
     rules: {
       ...tseslint.configs.strictTypeChecked.rules,
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
       'react-compiler/react-compiler': 'error',
       ...normalizeRules(react.configs.recommended.rules),
       ...normalizeRules(react.configs['jsx-runtime'].rules),
+      'react-refresh/only-export-components': 'off',
+      '@next/next/no-img-element': 'off',
     },
     settings: {
       react: {
