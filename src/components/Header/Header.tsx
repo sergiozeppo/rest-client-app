@@ -1,8 +1,9 @@
 import { useTranslations } from 'next-intl';
 import { LocaleSwitcher } from '@/components';
-import s from './Heder.module.scss';
-export default function Heder() {
-  const t = useTranslations('Heder');
+import s from './Header.module.scss';
+
+export default function Header() {
+  const t = useTranslations('Header');
   return (
     <div className={s.title}>
       <h2>Logo</h2>
