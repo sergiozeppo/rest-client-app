@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
-    "format:fix": "prettier --write .",
+    "prettier-fix": "prettier --write .",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
