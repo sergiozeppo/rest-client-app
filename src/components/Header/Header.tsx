@@ -11,12 +11,12 @@ export default function Header() {
         alt="Course Logo"
         className={styles.logo}
       />
-      <div>
+      <div className={styles.buttons_container}>
         <LocaleSwitcher />
-      </div>
-      <div>
-        <button className={styles.btn}>{t('Sign_In')}</button>
-        <button className={styles.btn}>{t('Sign_up')}</button>
+        <div>
+          <button className={styles.btn}>{t('Sign_In')}</button>
+          <button className={styles.btn}>{t('Sign_up')}</button>
+        </div>
       </div>
     </div>
   );

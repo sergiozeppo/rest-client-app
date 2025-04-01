@@ -16,6 +16,13 @@
   border-radius: 50%;
 }
 
+.buttons_container {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-left: 10px;
+}
+
 .btn {
   cursor: pointer;
   color: #ffffff;
