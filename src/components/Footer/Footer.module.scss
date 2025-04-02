@@ -1,12 +1,12 @@
 .footer {
-  background-color: #1f2937;
-  color: #d1d5db;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   padding: 1.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #374151;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 8px var(--color-shadow);
 
   .container {
     display: flex;
@@ -26,13 +26,13 @@
     gap: 1.5rem;
 
     a {
-      color: #9ca3af;
+      color: var(--color-text-link);
       text-decoration: none;
       font-size: 1rem;
       transition: color 0.3s ease;
 
       &:hover {
-        color: #60a5fa;
+        color: var(--color-text-hover);
       }
     }
   }
