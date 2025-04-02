@@ -1,4 +1,13 @@
 .app {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 1200px;
+  min-width: 380px;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  font-family: var(--font-geist-mono);
 }

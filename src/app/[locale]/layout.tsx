@@ -5,7 +5,9 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Header, Footer } from '@/components';
 import { ReactNode } from 'react';
-import s from './App.module.scss';
+import Provider from '@/Context/Provider';
+import './globals.css';
+import styles from './App.module.scss';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,15 +38,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <Provider className={`${geistSans.variable} ${geistMono.variable}`}>
         <NextIntlClientProvider>
-          <div className={s.app}>
+          <div className={styles.app}>
             <Header />
             {children}
             <Footer />
           </div>
         </NextIntlClientProvider>
-      </body>
+      </Provider>
     </html>
   );
 }

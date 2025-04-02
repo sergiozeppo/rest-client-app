@@ -1,9 +1,9 @@
 .local {
   cursor: pointer;
-  color: #ffffff;
-  background-color: #60a5fa;
-  border: 1px solid #e5e5e5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-text);
   border-radius: 4px;
-  padding: 8px 16px;
+  padding: 0 4px;
   margin: 5px;
 }
