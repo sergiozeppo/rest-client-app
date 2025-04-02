@@ -1,9 +1,8 @@
-import { Theme } from '@/Context/Provider';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type ThemeStore = {
-  theme: Theme;
+  theme: 'light' | 'dark';
   setTheme: () => void;
 };
 
