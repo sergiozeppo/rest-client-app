@@ -3,9 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Header, Footer } from '@/components';
+import { Header, Footer, ThemeSwitcher as ThemeProvider } from '@/components';
 import { ReactNode } from 'react';
-import Provider from '@/Context/Provider';
 import './globals.css';
 import styles from './App.module.scss';
 
@@ -38,7 +37,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <Provider className={`${geistSans.variable} ${geistMono.variable}`}>
+      <ThemeProvider className={`${geistSans.variable} ${geistMono.variable}`}>
         <NextIntlClientProvider>
           <div className={styles.app}>
             <Header />
@@ -46,7 +45,7 @@ export default async function LocaleLayout({
             <Footer />
           </div>
         </NextIntlClientProvider>
-      </Provider>
+      </ThemeProvider>
     </html>
   );
 }
