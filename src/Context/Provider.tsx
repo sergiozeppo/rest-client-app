@@ -14,8 +14,7 @@ export default function Provider({ children, className }: Props) {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    setTheme();
   };
 
   return (

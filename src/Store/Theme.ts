@@ -4,15 +4,17 @@ import { persist } from 'zustand/middleware';
 
 type ThemeStore = {
   theme: Theme;
-  // eslint-disable-next-line no-unused-vars
-  setTheme: (theme: Theme) => void;
+  setTheme: () => void;
 };
 
 export const useTheme = create<ThemeStore>()(
   persist(
     (set) => ({
       theme: 'light',
-      setTheme: (theme) => set({ theme }),
+      setTheme: () =>
+        set((state) => ({
+          theme: state.theme === 'light' ? 'dark' : 'light',
+        })),
     }),
     { name: 'theme' }
   )
