@@ -1,28 +1,10 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { ReactNode } from 'react';
-import './globals.css';
+// import { ReactNode } from 'react';
 import styles from './App.module.scss';
-import {
-  Header,
-  Footer,
-  ThemeSwitcher as ThemeProvider,
-  Query,
-  Response,
-} from '@/components';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { Header, Footer, Query, Response } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -30,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default async function LocaleLayout({
-  children,
+  // children,
   params,
 }: {
-  children: ReactNode;
+  // children: ReactNode;
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
@@ -42,18 +24,14 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
-      <ThemeProvider className={`${geistSans.variable} ${geistMono.variable}`}>
-        <NextIntlClientProvider>
-          <div className={styles.app}>
-            <Header />
-            <Query />
-            {children}
-            <Response />
-            <Footer />
-          </div>
-        </NextIntlClientProvider>
-      </ThemeProvider>
-    </html>
+    <NextIntlClientProvider>
+      <div className={styles.app}>
+        <Header />
+        <Query />
+        <Response />
+        {/* {children} */}
+        <Footer />
+      </div>
+    </NextIntlClientProvider>
   );
 }
