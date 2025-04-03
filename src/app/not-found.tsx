@@ -1,5 +1,11 @@
-import NotFound404 from '@/components/NotFound404/NotFound404';
+import { NotFound404 } from '@/components';
 
 export default function NotFound() {
-  return <NotFound404 />;
+  return (
+    <html>
+      <body>
+        <NotFound404 />
+      </body>
+    </html>
+  );
 }
