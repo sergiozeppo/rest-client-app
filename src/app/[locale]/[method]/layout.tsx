@@ -1,9 +1,8 @@
 'use client';
-import { useUrl } from '@/Store/useUrlStore';
+import { useUrl, Params } from '@/Store/useUrlStore';
 import { useParams, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-type Params = Record<string, string>;
 export default function Layout() {
   const params: Params = useParams();
   const searchParams = Object.fromEntries(useSearchParams().entries());

@@ -1,18 +1,23 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-type Params = Record<string, string>;
+export type Params = {
+  locale?: string;
+  method?: string;
+  url?: string;
+};
+type Query = Record<string, string>;
 
 type Url = {
   method: string;
   locale: string;
   urlBase: string;
   params: Params;
-  query: Params;
+  query: Query;
   // eslint-disable-next-line
   setParams: (params: Params) => void;
   // eslint-disable-next-line
-  setQuery: (query: Params) => void;
+  setQuery: (query: Query) => void;
 };
 
 export const useUrl = create<Url>()(
