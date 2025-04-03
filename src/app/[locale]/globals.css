@@ -1,8 +1,9 @@
 .light {
-  --color-fon: #ededed;
+  --color-fon: #ffffff;
   --color-bg: #d8d8d8;
+  --color-bg-main: #f9f9f9;
   --color-text: #3d3e41;
-  --color-text-btn: #3d3e41;
+  --color-text-btn: #7c4f01;
   --color-text-link: #303337;
   --color-text-hover: #60a5fa;
   --color-border: #b5becc;
@@ -12,7 +13,8 @@
 .dark {
   --color-fon: #5d5d5d;
   --color-bg: #1f2937;
-  --color-text: #d1d5db;
+  --color-bg-main: #465262;
+  --color-text: #e4e8ee;
   --color-text-btn: #ffc261;
   --color-text-link: #9ca3af;
   --color-text-hover: #60a5fa;

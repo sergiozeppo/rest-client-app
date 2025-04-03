@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex-grow: 1;
+}
+
+.heder {
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid black;
+  background: var(--color-bg);
+}
+
+.body {
+  display: flex;
+
+  & > button {
+    cursor: pointer;
+    color: var(--color-text-btn);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 5px;
+    box-shadow: 0px 8px 8px 2px var(--color-shadow);
+    transition: all 0.2s ease-in-out;
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+}

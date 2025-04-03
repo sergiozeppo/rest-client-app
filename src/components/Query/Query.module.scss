@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.query {
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+  width: calc(100% - 10px);
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
+
+  & > input {
+    flex-grow: 1;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  color: var(--color-text-btn);
+  background-color: var(--color-bg);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+
+.body {
+  display: flex;
+
+  & > button {
+    cursor: pointer;
+    color: var(--color-text-btn);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 5px;
+    box-shadow: 0px 8px 8px 2px var(--color-shadow);
+    transition: all 0.2s ease-in-out;
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
