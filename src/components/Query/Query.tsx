@@ -11,7 +11,7 @@ const views = {
 };
 
 export default function Query() {
-  const [vid, setVid] = useState<keyof typeof views>('History');
+  const [show, setShow] = useState<keyof typeof views>('History');
 
   return (
     <div className={s.container}>
@@ -28,12 +28,12 @@ export default function Query() {
       </div>
       <div className={s.body}>
         {Object.keys(views).map((key) => (
-          <button key={key} onClick={() => setVid(key as keyof typeof views)}>
+          <button key={key} onClick={() => setShow(key as keyof typeof views)}>
             {key}
           </button>
         ))}
       </div>
-      {views[vid]}
+      {views[show]}
     </div>
   );
 }
