@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
-import s from './Query.module.scss';
+import styles from './Query.module.scss';
+import { SelectMethod } from '@/components';
 
-const methods = ['GET', 'POST', 'PUT', 'DELETE'];
 const views = {
   History: <p>Component with History</p>,
   Query: <p>Component with Query</p>,
@@ -14,19 +14,13 @@ export default function Query() {
   const [show, setShow] = useState<keyof typeof views>('History');
 
   return (
-    <div className={s.container}>
-      <div className={s.query}>
-        <select name="method">
-          {methods.map((method) => (
-            <option key={method} value={method}>
-              {method}
-            </option>
-          ))}
-        </select>
-        <input name="query" className={s.input} type="text" />
-        <button className={s.btn}>GO</button>
+    <div className={styles.container}>
+      <div className={styles.query}>
+        <SelectMethod />
+        <input name="query" className={styles.input} type="text" />
+        <button className={styles.btn}>GO</button>
       </div>
-      <div className={s.body}>
+      <div className={styles.body}>
         {Object.keys(views).map((key) => (
           <button key={key} onClick={() => setShow(key as keyof typeof views)}>
             {key}
