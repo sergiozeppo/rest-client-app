@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-// import { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import './globals.css';
 import styles from './App.module.scss';
 import {
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
 };
 
 export default async function LocaleLayout({
-  // children,
+  children,
   params,
 }: {
-  // children: ReactNode;
+  children: ReactNode;
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
@@ -48,8 +48,8 @@ export default async function LocaleLayout({
           <div className={styles.app}>
             <Header />
             <Query />
+            {children}
             <Response />
-            {/* {children} */}
             <Footer />
           </div>
         </NextIntlClientProvider>
