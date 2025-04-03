@@ -9,11 +9,11 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  transition: all 0.3s ease-in-out;
+  transition: padding 0.3s ease-in-out;
 
   &.sticky {
-    background-color: var(--color-bg-sticky);
-    padding: 0.5rem 1rem;
+    // background-color: var(--color-bg-sticky);
+    padding: 0.2rem 1rem;
     color: var(--color-text-sticky);
   }
 }

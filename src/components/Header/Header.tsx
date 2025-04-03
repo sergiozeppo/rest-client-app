@@ -10,7 +10,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isSwitchToSticky = window.scrollY > 20;
+      const isSwitchToSticky = window.scrollY > 0;
       if (isSwitchToSticky !== isSticky) {
         setIsSticky(isSwitchToSticky);
       }

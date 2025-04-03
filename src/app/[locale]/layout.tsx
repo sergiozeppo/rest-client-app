@@ -49,6 +49,12 @@ export default async function LocaleLayout({
             <Header />
             <Query />
             <Response />
+            <Query />
+            <Response />
+            <Query />
+            <Response />
+            <Query />
+            <Response />
             {/* {children} */}
             <Footer />
           </div>
