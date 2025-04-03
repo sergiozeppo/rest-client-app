@@ -9,13 +9,16 @@ export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
-    const handleStickyHeader = () => {
-      setIsSticky(window.scrollY > 20);
+    const handleScroll = () => {
+      const isSwitchToSticky = window.scrollY > 20;
+      if (isSwitchToSticky !== isSticky) {
+        setIsSticky(isSwitchToSticky);
+      }
     };
 
-    window.addEventListener('scroll', handleStickyHeader);
-    return () => window.removeEventListener('scroll', handleStickyHeader);
-  }, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isSticky]);
 
   const t = useTranslations('Header');
   return (
