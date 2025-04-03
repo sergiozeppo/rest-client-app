@@ -9,6 +9,13 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  transition: all 0.3s ease-in-out;
+
+  &.sticky {
+    background-color: var(--color-bg-sticky);
+    padding: 0.5rem 1rem;
+    color: var(--color-text-sticky);
+  }
 }
 
 .logo {

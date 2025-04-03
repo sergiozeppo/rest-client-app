@@ -8,6 +8,8 @@
   --color-text-hover: #60a5fa;
   --color-border: #b5becc;
   --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-bg-sticky: red;
+  --color-text-sticky: #fff;
 }
 
 .dark {
@@ -20,6 +22,8 @@
   --color-text-hover: #60a5fa;
   --color-border: #374151;
   --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-bg-sticky: blue;
+  --color-text-sticky: #fff;
 }
 
 body {
