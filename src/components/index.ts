@@ -5,4 +5,5 @@ export { default as ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
 export { default as Query } from './Query/Query';
 export { default as Response } from './Response/Response';
 export { default as SelectMethod } from './SelectMethod/SelectMethod';
+export { default as SearchInput } from './SearchInput/SearchInput';
 export { default as NotFound404 } from './NotFound404/NotFound404';
