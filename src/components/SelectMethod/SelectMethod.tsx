@@ -12,10 +12,10 @@ export default function SelectMethod() {
   const { query, params, method } = useUrl();
 
   function handleSelect(e: ChangeEvent<HTMLSelectElement>) {
-    const method = e.target.value;
+    const method = e.target.value.toLowerCase();
     startTransition(() => {
       router.replace({
-        pathname: `/${method.toLowerCase()}/${params.url || ''}`,
+        pathname: `/${method}/${params.url || ''}`,
         query,
       });
     });
