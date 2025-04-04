@@ -3,11 +3,12 @@ import { ChangeEvent, useTransition, KeyboardEvent } from 'react';
 import styles from './SearchInput.module.scss';
 import { useUrl } from '@/Store/useUrlStore';
 import { useRouter } from '@/i18n/navigation';
+import { useFetch } from '@/Store/useFetch';
 export default function SearchInput() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const { params, value } = useUrl();
-
+  const fetch = useFetch((state) => state.fetch);
   function handleInput(e: ChangeEvent<HTMLInputElement>) {
     const url = e.target.value.trim();
     if (!url || url === 'http://' || url === 'https://') return;
@@ -21,14 +22,8 @@ export default function SearchInput() {
 
   function handleEnter(e: KeyboardEvent<HTMLInputElement>) {
     if (e.code === 'Enter') {
-      startTransition(async () => {
-        try {
-          const data = await fetch(value);
-          const json = await data?.json();
-          console.log(json);
-        } catch (error) {
-          console.log('error in fetch', error);
-        }
+      startTransition(() => {
+        fetch(value);
       });
     }
   }
