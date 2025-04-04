@@ -1,18 +1,12 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ReactNode } from 'react';
-import './globals.css';
 import styles from './App.module.scss';
-import {
-  Header,
-  Footer,
-  ThemeSwitcher as ThemeProvider,
-  Query,
-  Response,
-} from '@/components';
+import { Header, Footer, Query, Response } from '@/components';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { ThemeSwitcher as ThemeProvider } from '@/components';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -48,8 +42,8 @@ export default async function LocaleLayout({
           <div className={styles.app}>
             <Header />
             <Query />
-            {children}
             <Response />
+            {children}
             <Footer />
           </div>
         </NextIntlClientProvider>

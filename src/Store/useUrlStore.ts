@@ -32,8 +32,8 @@ export const useUrl = create<Url>()(
         set((state) => ({
           locale: params.locale || 'en',
           params: params || {},
-          method: params?.method.toUpperCase() || 'GET',
-          urlBase: `/${params?.method || state.method}/${params.url || ''}`,
+          method: params?.method?.toUpperCase() || 'GET',
+          urlBase: `/${params?.method || state?.method}/${params.url || ''}`,
         }));
       },
       setQuery: (query) => set({ query }),
