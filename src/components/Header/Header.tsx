@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { LocaleSwitcher, ThemeSwitcher } from '@/components';
 import styles from './Header.module.scss';
+import { Link } from '@/i18n/navigation';
 
 export default function Header() {
   const t = useTranslations('Header');
@@ -17,8 +18,12 @@ export default function Header() {
           <ThemeSwitcher />
         </div>
         <div className={styles.buttons_auth}>
-          <button className={styles.btn}>{t('Sign_In')}</button>
-          <button className={styles.btn}>{t('Sign_up')}</button>
+          <Link href="/sign-in" className={styles.btn}>
+            {t('Sign_In')}
+          </Link>
+          <Link href="/sign-up" className={styles.btn}>
+            {t('Sign_up')}
+          </Link>
         </div>
       </div>
     </div>
