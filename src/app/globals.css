@@ -10,6 +10,7 @@
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-bg-sticky: red;
   --color-text-sticky: #fff;
+  --color-error: rgb(201, 0, 0);
 }
 
 .dark {
@@ -24,6 +25,7 @@
   --color-shadow: rgba(0, 0, 0, 0.2);
   --color-bg-sticky: blue;
   --color-text-sticky: #fff;
+  --color-error: rgb(165, 0, 0);
 }
 
 body {

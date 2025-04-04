@@ -39,6 +39,9 @@ export default function Header() {
           <ThemeSwitcher />
         </div>
         <div className={styles.buttons_auth}>
+          <Link href="rest-client" className={styles.btn}>
+            Rest Client
+          </Link>
           <Link href="/sign-in" className={styles.btn}>
             {t('Sign_In')}
           </Link>
