@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './Query.module.scss';
-import { SelectMethod } from '@/components';
+import { SearchInput, SelectMethod } from '@/components';
 
 const views = {
   History: <p>Component with History</p>,
@@ -17,7 +17,7 @@ export default function Query() {
     <div className={styles.container}>
       <div className={styles.query}>
         <SelectMethod />
-        <input name="query" className={styles.input} type="text" />
+        <SearchInput />
         <button className={styles.btn}>GO</button>
       </div>
       <div className={styles.body}>
