@@ -1,14 +1,25 @@
 'use client';
+import { useFetch } from '@/Store/useFetch';
 import styles from './Response.module.scss';
 import { useState } from 'react';
 
-const views = {
-  Response: <p>Component with Response</p>,
-  Headers: <p>Component with Headers</p>,
+const Resp = () => {
+  const response = useFetch((state) => state.response);
+  return <pre>{JSON.stringify(response, null, 2)}</pre>;
+};
+const Head = () => {
+  const response = useFetch((state) => state.headers);
+  return <pre>{JSON.stringify(response, null, 2)}</pre>;
 };
 
+const views = {
+  Response: <Resp />,
+  Headers: <Head />,
+};
+
+type View = keyof typeof views;
 export default function Response() {
-  const [show, setShow] = useState<keyof typeof views>('Response');
+  const [show, setShow] = useState<View>('Response');
 
   return (
     <div className={styles.container}>
@@ -19,7 +30,7 @@ export default function Response() {
       </div>
       <div className={styles.body}>
         {Object.keys(views).map((key) => (
-          <button key={key} onClick={() => setShow(key as keyof typeof views)}>
+          <button key={key} onClick={() => setShow(key as View)}>
             {key}
           </button>
         ))}
