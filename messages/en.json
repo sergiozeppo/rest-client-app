@@ -8,5 +8,8 @@
   },
   "Footer": {
     "Rights": "All rights reserved"
+  },
+  "ButtonGO": {
+    "go": "GO"
   }
 }
