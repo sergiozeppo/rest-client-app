@@ -10,6 +10,16 @@
     "Rights": "Wszelkie prawa zastrzeżone"
   },
   "ButtonGO": {
-    "go": "START"
+    "go": "START",
+  "Sign-up": {
+    "title": "Zacznij",
+    "subtitle": "Utwórz nowe konto",
+    "divider": "lub",
+    "password": "Hasło",
+    "confirm-password": "Potwierdź hasło",
+    "github": "Kontynuuj z GitHub",
+    "sign-up": "Zarejestruj się",
+    "account": "Masz już konto?",
+    "redirect": "Zaloguj się teraz"
   }
 }
