@@ -26,7 +26,7 @@ export default function Query() {
           </button>
         ))}
       </div>
-      {views[show]}
+      <div className={styles.content}>{views[show]}</div>
     </div>
   );
 }
