@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './Query.module.scss';
-import { SearchInput, SelectMethod } from '@/components';
+import { SearchInput, SelectMethod, ButtonGO } from '@/components';
 
 const views = {
   History: <p>Component with History</p>,
@@ -18,7 +18,7 @@ export default function Query() {
       <div className={styles.query}>
         <SelectMethod />
         <SearchInput />
-        <button className={styles.btn}>GO</button>
+        <ButtonGO />
       </div>
       <div className={styles.body}>
         {Object.keys(views).map((key) => (

@@ -23,7 +23,7 @@ export default function SearchInput() {
   function handleEnter(e: KeyboardEvent<HTMLInputElement>) {
     if (e.code === 'Enter') {
       startTransition(() => {
-        fetch(value);
+        fetch();
       });
     }
   }

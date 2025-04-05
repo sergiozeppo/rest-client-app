@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import { useUrl } from './useUrlStore';
 
 type Response = {
   response: object;
@@ -7,8 +8,7 @@ type Response = {
   status: number;
   time: number;
   size: number;
-  // eslint-disable-next-line
-  fetch: (url: string) => void;
+  fetch: () => void;
 };
 
 export const useFetch = create<Response>()(
@@ -20,9 +20,10 @@ export const useFetch = create<Response>()(
       time: 0,
       size: 0,
 
-      fetch: async (url) => {
+      fetch: async () => {
+        const { value } = useUrl.getState();
         const start = Date.now();
-        const res = await fetch(url);
+        const res = await fetch(value);
         const data = await res.json();
         const end = Date.now();
 

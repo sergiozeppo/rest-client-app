@@ -33,15 +33,15 @@ export default function Header() {
         alt="Course Logo"
         className={styles.logo}
       />
+      <Link href="/get" className={styles.btn}>
+        temporarily/временно
+      </Link>
       <div className={styles.buttons_container}>
         <div className={styles.buttons_switcher}>
           <LocaleSwitcher />
           <ThemeSwitcher />
         </div>
         <div className={styles.buttons_auth}>
-          <Link href="rest-client" className={styles.btn}>
-            Rest Client
-          </Link>
           <Link href="/sign-in" className={styles.btn}>
             {t('Sign_In')}
           </Link>

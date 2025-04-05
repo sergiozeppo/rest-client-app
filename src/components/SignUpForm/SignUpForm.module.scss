@@ -1,65 +1,64 @@
 .inputContainer {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 8px;
-  }
-  
-  .label {
-    font-size: 0.9rem;
-    padding: 0 0 5px 8px;
-  }
-  
-  .input {
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    height: 30px;
-    padding: 8px;
-    border: 1px solid var(--color-text);
-    border-radius: 10px;
-  }
-  
-  .errorContainer {
-    margin-top: 6px;
-    padding-left: 8px;
-    height: 15px;
-  }
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8px;
+}
 
-  .authErrorContainer {
-    display: flex;
-    justify-content: center;
-    
-    margin-top: 6px;
-    padding-left: 8px;
-    height: 15px;
+.label {
+  font-size: 0.9rem;
+  padding: 0 0 5px 8px;
+}
 
-    & .error {
-      font-size: 1rem;
-    }      
+.input {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  height: 30px;
+  padding: 8px;
+  border: 1px solid var(--color-text);
+  border-radius: 10px;
+}
+
+.errorContainer {
+  margin-top: 6px;
+  padding-left: 8px;
+  height: 15px;
+}
+
+.authErrorContainer {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 6px;
+  padding-left: 8px;
+  height: 15px;
+
+  & .error {
+    font-size: 1rem;
   }
-  
-  .inputError {
-    border-color: var(--color-error);
-  }
-  
-  .error {
-    font-size: 0.8rem;
-    color: var(--color-error);
-  }
-  
+}
+
+.inputError {
+  border-color: var(--color-error);
+}
+
+.error {
+  font-size: 0.8rem;
+  color: var(--color-error);
+}
+
 .signUpButton {
-    cursor: pointer;
-    width: 100%;
-    height: 30px;
-    border-radius: 10px;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    margin-top: 10px;
-    border: 1px solid var(--color-text);
+  cursor: pointer;
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin-top: 10px;
+  border: 1px solid var(--color-text);
 
-    &:disabled {
-      cursor: default;
-      opacity: 0.5;
-      background-color: var(--color-bg-secondary);
-    }
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+    background-color: var(--color-bg-secondary);
   }
-  
+}
