@@ -3,14 +3,19 @@
   --color-bg: #d8d8d8;
   --color-bg-main: #f9f9f9;
   --color-text: #3d3e41;
+  --color-text-main: #3d3e41;
+  --color-text-welcome: #ffffff;
   --color-text-btn: #7c4f01;
   --color-text-link: #303337;
   --color-text-hover: #60a5fa;
   --color-border: #b5becc;
   --color-shadow: rgba(0, 0, 0, 0.1);
-  --color-bg-sticky: red;
   --color-text-sticky: #fff;
   --color-error: rgb(201, 0, 0);
+  --primary-member-text: #4f46e5;
+  --accent-btn: #0ea5e9;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -18,14 +23,19 @@
   --color-bg: #1f2937;
   --color-bg-main: #465262;
   --color-text: #e4e8ee;
+  --color-text-main: #2d3748;
+  --color-text-welcome: #111827;
   --color-text-btn: #ffc261;
   --color-text-link: #9ca3af;
   --color-text-hover: #60a5fa;
   --color-border: #374151;
   --color-shadow: rgba(0, 0, 0, 0.2);
-  --color-bg-sticky: blue;
   --color-text-sticky: #fff;
   --color-error: rgb(165, 0, 0);
+  --primary-member-text: #4f46e5;
+  --accent-btn: #0ea5e9;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
