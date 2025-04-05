@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ReactNode } from 'react';
 import styles from './App.module.scss';
-import { Header, Footer, Query, Response } from '@/components';
+import { Header, Footer } from '@/components';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeSwitcher as ThemeProvider } from '@/components';
 
@@ -41,8 +41,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <div className={styles.app}>
             <Header />
-            <Query />
-            <Response />
             {children}
             <Footer />
           </div>

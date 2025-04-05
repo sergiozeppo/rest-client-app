@@ -1,4 +1,5 @@
 'use client';
+import { Query, Response } from '@/components';
 import { useUrl, Params } from '@/Store/useUrlStore';
 import { useParams, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
@@ -18,5 +19,10 @@ export default function Layout() {
     setQuery(searchParams);
   }, [searchParams, setQuery]);
 
-  return null;
+  return (
+    <>
+      <Query />
+      <Response />
+    </>
+  );
 }
