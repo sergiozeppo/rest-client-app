@@ -5,7 +5,12 @@ import { useState } from 'react';
 
 const Resp = () => {
   const response = useFetch((state) => state.response);
-  return <pre>{JSON.stringify(response, null, 2)}</pre>;
+  const error = useFetch((state) => state.error);
+  return (
+    <pre className={styles.pre}>
+      {JSON.stringify(error || response, null, 2)}
+    </pre>
+  );
 };
 const Head = () => {
   const response = useFetch((state) => state.headers);
@@ -20,13 +25,14 @@ const views = {
 type View = keyof typeof views;
 export default function Response() {
   const [show, setShow] = useState<View>('Response');
-
+  const status = useFetch((state) => state.status);
+  const time = useFetch((state) => state.time);
   return (
     <div className={styles.container}>
       <div className={styles.heder}>
-        <p>Status: 123</p>
+        <p>Status: {status}</p>
         <p>Size: 123 kb</p>
-        <p>Time: 123 ms</p>
+        <p>Time: {time} ms</p>
       </div>
       <div className={styles.body}>
         {Object.keys(views).map((key) => (
@@ -35,7 +41,7 @@ export default function Response() {
           </button>
         ))}
       </div>
-      {views[show]}
+      <div className={styles.content}>{views[show]}</div>
     </div>
   );
 }

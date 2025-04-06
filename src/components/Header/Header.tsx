@@ -5,6 +5,7 @@ import { LocaleSwitcher, ThemeSwitcher } from '@/components';
 import styles from './Header.module.scss';
 import { Link } from '@/i18n/navigation';
 import { useState, useEffect } from 'react';
+import Logo from '../Logo/Logo';
 
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
@@ -28,11 +29,7 @@ export default function Header() {
         isSticky ? `${styles.container} ${styles.sticky}` : styles.container
       }
     >
-      <img
-        src="https://raw.githubusercontent.com/rolling-scopes-school/tasks/refs/heads/master/react/assets/rss-logo.svg"
-        alt="Course Logo"
-        className={styles.logo}
-      />
+      <Logo />
       <Link href="/get" className={styles.btn}>
         temporarily/временно
       </Link>

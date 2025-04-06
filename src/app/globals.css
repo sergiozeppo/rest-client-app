@@ -1,11 +1,11 @@
 .light {
   --color-fon: #ffffff;
-  --color-bg: #d8d8d8;
-  --color-bg-main: #f9f9f9;
+  --color-bg: #f1f8ff;
+  --color-bg-main: #f8fbff;
   --color-text: #3d3e41;
   --color-text-main: #3d3e41;
   --color-text-welcome: #ffffff;
-  --color-text-btn: #7c4f01;
+  --color-text-btn: #000000;
   --color-text-link: #303337;
   --color-text-hover: #60a5fa;
   --color-border: #b5becc;

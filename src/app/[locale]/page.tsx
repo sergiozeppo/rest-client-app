@@ -104,8 +104,8 @@ export default function Page() {
             <div className={styles['member-inner']}>
               <div className={styles['member-front']}>
                 <img
-                  src="https://avatars.githubusercontent.com/u/117648644?v=4"
-                  alt="Dev 2"
+                  src="https://avatars.githubusercontent.com/u/98821210?v=4"
+                  alt="Dev 3"
                 />
                 <h3>Kamil Rogowski</h3>
               </div>
@@ -120,8 +120,8 @@ export default function Page() {
             <div className={styles['member-inner']}>
               <div className={styles['member-front']}>
                 <img
-                  src="https://avatars.githubusercontent.com/u/98821210?v=4"
-                  alt="Dev 3"
+                  src="https://avatars.githubusercontent.com/u/117648644?v=4"
+                  alt="Dev 2"
                 />
                 <h3>Viktor Yelantsev</h3>
               </div>
