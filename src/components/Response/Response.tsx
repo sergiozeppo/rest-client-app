@@ -27,11 +27,12 @@ export default function Response() {
   const [show, setShow] = useState<View>('Response');
   const status = useFetch((state) => state.status);
   const time = useFetch((state) => state.time);
+  const size = useFetch((state) => state.size);
   return (
     <div className={styles.container}>
       <div className={styles.heder}>
         <p>Status: {status}</p>
-        <p>Size: 123 kb</p>
+        <p>Size: {size} kb</p>
         <p>Time: {time} ms</p>
       </div>
       <div className={styles.body}>
