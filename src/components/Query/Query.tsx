@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
 import styles from './Query.module.scss';
-import { SearchInput, SelectMethod } from '@/components';
+import { SearchInput, SelectMethod, QueryParameters } from '@/components';
 
 const views = {
   History: <p>Component with History</p>,
-  Query: <p>Component with Query</p>,
+  Query: <QueryParameters />,
   Headers: <p>Component with HTTP Headers</p>,
   Body: <p>Component with Body</p>,
 };
