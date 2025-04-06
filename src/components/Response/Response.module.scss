@@ -31,6 +31,12 @@
     &:active {
       box-shadow: none;
     }
+
+    &.active {
+      color: var(--color-text-btn-active);
+      border-color: var(--color-text-btn-active);
+      transform: scale(1.05);
+    }
   }
 }
 
