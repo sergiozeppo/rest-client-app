@@ -4,4 +4,13 @@
   outline: none;
   font-size: 1.1rem;
   font-family: var(--font-geist-mono);
+  // border: var(--color-border);
+}
+
+.btn {
+  cursor: pointer;
+  color: var(--color-text-btn);
+  background-color: var(--color-bg);
+  border: none;
+  width: 100px;
 }

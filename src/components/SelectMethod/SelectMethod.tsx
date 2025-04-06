@@ -24,7 +24,6 @@ export default function SelectMethod() {
   return (
     <select
       className={styles.select}
-      name="method"
       value={method}
       disabled={isPending}
       onChange={handleSelect}
