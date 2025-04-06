@@ -6,6 +6,7 @@
   --color-text-main: #3d3e41;
   --color-text-welcome: #ffffff;
   --color-text-btn: #000000;
+  --color-text-btn-active: #ff9900;
   --color-text-link: #303337;
   --color-text-hover: #60a5fa;
   --color-border: #b5becc;
@@ -26,6 +27,7 @@
   --color-text-main: #2d3748;
   --color-text-welcome: #111827;
   --color-text-btn: #ffc261;
+  --color-text-btn-active: #ff9900;
   --color-text-link: #9ca3af;
   --color-text-hover: #60a5fa;
   --color-border: #374151;

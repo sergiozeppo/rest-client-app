@@ -37,7 +37,11 @@ export default function Response() {
       </div>
       <div className={styles.body}>
         {Object.keys(views).map((key) => (
-          <button key={key} onClick={() => setShow(key as View)}>
+          <button
+            className={show == key ? `${styles.active}` : ''}
+            key={key}
+            onClick={() => setShow(key as View)}
+          >
             {key}
           </button>
         ))}
