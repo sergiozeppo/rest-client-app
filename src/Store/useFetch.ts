@@ -7,7 +7,7 @@ type Response = {
   headers: object;
   status: number;
   time: number;
-  size: number;
+  size: string;
   error: string | null;
   // eslint-disable-next-line no-unused-vars
   fetch: (e?: string) => void;
@@ -39,7 +39,9 @@ export const useFetch = create<Response>()(
           status: data.status,
           time: end - start,
           error: data?.error || null,
-          size: 1024,
+          size: (
+            new Blob([JSON.stringify(data?.response)]).size / 1024
+          ).toFixed(2),
         });
       },
     }),
