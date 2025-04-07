@@ -2,6 +2,7 @@
 
 import { useUrl } from '@/Store/useUrlStore';
 import { useEffect } from 'react';
+import styles from './QueryParameters.module.scss';
 
 export default function QueryParameters() {
   const {
@@ -24,16 +25,23 @@ export default function QueryParameters() {
   }, [QueryItems, setQuery]);
 
   return (
-    <>
-      <h3>Query Parameters</h3>
-      <button onClick={addItem}>add Query Parameters</button>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h3>Query Parameters</h3>
+        <button className={styles.btn} onClick={addItem}>
+          Add Query Parameters
+        </button>
+      </div>
       {QueryItems.map(({ checked, id, key, value }) => (
-        <div key={id}>
+        <div className={styles.item} key={id}>
           <input
             type="checkbox"
+            id={id}
+            className={styles.checkbox}
             defaultChecked={checked}
             onChange={() => setChecked(id)}
           />
+          <label htmlFor={id} className={styles.label}></label>
           <input
             type="text"
             value={key}
@@ -44,9 +52,11 @@ export default function QueryParameters() {
             value={value}
             onChange={(e) => setValue(e.target.value, id)}
           />
-          <button onClick={() => delValue(id)}>Delete</button>
+          <button className={styles.btn} onClick={() => delValue(id)}>
+            Delete
+          </button>
         </div>
       ))}
-    </>
+    </div>
   );
 }
