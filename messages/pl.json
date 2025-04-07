@@ -22,5 +22,12 @@
     "sign-up": "Zarejestruj się",
     "account": "Masz już konto?",
     "redirect": "Zaloguj się teraz"
+  },
+  "QueryParameters": {
+    "title": "Parametry zapytania",
+    "delete": "Usuń",
+    "add": "Dodaj parametr zapytania",
+    "key": "Klucz",
+    "value": "Wartość"
   }
 }

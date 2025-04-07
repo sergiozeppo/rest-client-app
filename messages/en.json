@@ -22,5 +22,12 @@
     "sign-up": "Sign up",
     "account": "Already have an account?",
     "redirect": "Sign In Now"
+  },
+  "QueryParameters": {
+    "title": "Query Parameters",
+    "delete": "Delete",
+    "add": "Add Query Parameter",
+    "key": "Key",
+    "value": "Value"
   }
 }
