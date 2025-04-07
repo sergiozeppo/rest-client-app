@@ -1,17 +1,23 @@
 'use client';
-import { KeyboardEvent, useRef, useTransition } from 'react';
+import { KeyboardEvent, useEffect, useTransition, useState } from 'react';
 import styles from './SearchInput.module.scss';
 import { useUrl } from '@/Store/useUrlStore';
 import { useRouter } from '@/i18n/navigation';
 import { useFetch } from '@/Store/useFetch';
 import { useTranslations } from 'next-intl';
+
 export default function SearchInput() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
-  const { params, value } = useUrl();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const { params, value, setValueBase } = useUrl();
   const fetch = useFetch((state) => state.fetch);
   const t = useTranslations('ButtonGO');
+
+  const [inputValue, setInputValue] = useState(value ?? '');
+
+  useEffect(() => {
+    setInputValue(value ?? '');
+  }, [value]);
 
   const normalizeUrl = (input: string): string | null => {
     const trimmed = input.trim();
@@ -22,7 +28,6 @@ export default function SearchInput() {
   };
 
   const handleInput = () => {
-    const inputValue = inputRef.current?.value || '';
     const inputUrl = normalizeUrl(inputValue);
     if (!inputUrl) {
       return router.replace({
@@ -33,6 +38,7 @@ export default function SearchInput() {
     try {
       const { origin, pathname, search } = new URL(inputUrl);
       const base64 = btoa(encodeURIComponent(origin + pathname));
+      setValueBase(origin + pathname);
       router.replace({
         pathname: `/${params.method || 'get'}/${base64}${search}`,
       });
@@ -42,7 +48,6 @@ export default function SearchInput() {
   };
 
   const submit = () => {
-    const inputValue = inputRef.current?.value || '';
     handleInput();
     startTransition(() => {
       fetch(inputValue);
@@ -59,8 +64,8 @@ export default function SearchInput() {
     <>
       <input
         type="text"
-        ref={inputRef}
-        defaultValue={value}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
         disabled={isPending}
         onBlur={handleInput}
         onKeyDown={handleEnter}

@@ -43,6 +43,7 @@
 body {
   background-color: var(--color-fon);
   color: var(--color-text);
+  --color-input: #92bfeb15;
 }
 
 * {
