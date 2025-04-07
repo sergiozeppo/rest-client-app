@@ -29,5 +29,10 @@
     "add": "Add Query Parameter",
     "key": "Key",
     "value": "Value"
+  },
+  "QueryHistory": {
+    "title": "Query History",
+    "delete": "Delete",
+    "deleteAll": "Delete All"
   }
 }

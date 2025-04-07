@@ -29,5 +29,10 @@
     "add": "Dodaj parametr zapytania",
     "key": "Klucz",
     "value": "Wartość"
+  },
+  "QueryHistory": {
+    "title": "Historia zapytań",
+    "delete": "Usuń",
+    "deleteAll": "Usuń wszystko"
   }
 }

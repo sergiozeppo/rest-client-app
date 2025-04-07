@@ -8,3 +8,4 @@ export { default as SelectMethod } from './SelectMethod/SelectMethod';
 export { default as SearchInput } from './SearchInput/SearchInput';
 export { default as NotFound404 } from './NotFound404/NotFound404';
 export { default as QueryParameters } from './QueryParameters/QueryParameters';
+export { default as QueryHistory } from './QueryHistory/QueryHistory';
