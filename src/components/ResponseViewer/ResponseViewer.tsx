@@ -55,7 +55,7 @@ export default function ResponseViewer() {
         {lines.map((line, i) => (
           <div key={i} className={styles['resp-code-line']}>
             <span className={styles['resp-line-number']}>{i + 1}</span>
-            <samp className={styles['resp-line-text']}>{line}</samp>
+            <span className={styles['resp-line-text']}>{line}</span>
           </div>
         ))}
       </pre>
