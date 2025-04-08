@@ -1,15 +1,15 @@
+'use client';
 import { useState } from 'react';
 import styles from './ResponseViewer.module.scss';
 import { useTheme } from '@/Store/Theme';
+import { useFetch } from '@/Store/useFetch';
 
-type ResponseViewerProps = {
-  data: object | string | null;
-};
-
-export default function ResponseViewer({ data }: ResponseViewerProps) {
+export default function ResponseViewer() {
   const [copied, setCopied] = useState(false);
   const { theme } = useTheme();
-
+  const response = useFetch((state) => state.response);
+  const error = useFetch((state) => state.error);
+  const data = error || response;
   if (!data)
     return (
       <div className={styles.viewer}>
@@ -51,17 +51,11 @@ export default function ResponseViewer({ data }: ResponseViewerProps) {
           </button>
         </div>
       )}
-      <div className={styles['resp-line-numbers']}>
-        {lines.map((_, i) => (
-          <div key={i} className={styles['resp-line-number']}>
-            {i + 1}
-          </div>
-        ))}
-      </div>
       <pre className={styles['resp-code-block']}>
         {lines.map((line, i) => (
           <div key={i} className={styles['resp-code-line']}>
-            {line || '\u00A0'}
+            <span className={styles['resp-line-number']}>{i + 1}</span>
+            <samp className={styles['resp-line-text']}>{line}</samp>
           </div>
         ))}
       </pre>

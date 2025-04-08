@@ -2,20 +2,15 @@
 import { useFetch } from '@/Store/useFetch';
 import styles from './Response.module.scss';
 import { useState } from 'react';
-import ResponseViewer from '../ResponseViewer/ResponseViewer';
+import { ResponseViewer } from '@/components';
 
-const Resp = () => {
-  const response = useFetch((state) => state.response);
-  const error = useFetch((state) => state.error);
-  return <ResponseViewer data={error || response} />;
-};
 const Head = () => {
   const response = useFetch((state) => state.headers);
   return <pre>{JSON.stringify(response, null, 2)}</pre>;
 };
 
 const views = {
-  Response: <Resp />,
+  Response: <ResponseViewer />,
   Headers: <Head />,
 };
 
