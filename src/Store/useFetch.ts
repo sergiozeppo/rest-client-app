@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { useUrl } from './useUrlStore';
+import { useHistory } from './History';
 
 type Response = {
   response: object;
@@ -25,6 +26,8 @@ export const useFetch = create<Response>()(
 
       fetch: async (url) => {
         const method = useUrl.getState().method;
+        const setHistory = useHistory.getState().setHistory;
+        if (url) setHistory(method, url);
         const start = Date.now();
         const res = await fetch('/api', {
           method: 'POST',

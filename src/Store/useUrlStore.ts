@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-
 export type Params = {
   locale?: string;
   method: string;
@@ -55,7 +54,7 @@ export const useUrl = create<Url>()(
           params: params || {},
 
           method: params?.method.toUpperCase() || 'get',
-          urlBase: `/${params?.method || state.method}${params.url || ''}`,
+          urlBase: `/${params?.method || state.method}/${params.url || ''}`,
           valueBase,
           value: valueBase + state.queryBase,
         }));
