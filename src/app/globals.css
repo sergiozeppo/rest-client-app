@@ -21,7 +21,7 @@
   --color-resp-text: #222;
   --color-resp-line-bg: #eaeaea;
   --color-resp-brdr: #ccc;
-  --color-resp-copy-btn: #007aff;
+  --color-resp-copy-btn: #1e1e1e;
 }
 
 .dark {
@@ -47,7 +47,7 @@
   --color-resp-text: #e4e8ee;
   --color-resp-line-bg: #2c2c2c;
   --color-resp-brdr: #fff;
-  --color-resp-copy-btn: #4ea8ff;
+  --color-resp-copy-btn: #f9f9f9;
 }
 
 body {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './ResponseViewer.module.scss';
+import { useTheme } from '@/Store/Theme';
 
 type ResponseViewerProps = {
   data: object | string | null;
@@ -7,6 +8,7 @@ type ResponseViewerProps = {
 
 export default function ResponseViewer({ data }: ResponseViewerProps) {
   const [copied, setCopied] = useState(false);
+  const { theme } = useTheme();
 
   if (!data)
     return (
@@ -33,7 +35,19 @@ export default function ResponseViewer({ data }: ResponseViewerProps) {
       {json && (
         <div className={styles['resp-copy-wrapper']}>
           <button className={styles['resp-copy-btn']} onClick={handleCopy}>
-            {copied ? '✅' : 'Copy'}
+            {copied ? (
+              '✅'
+            ) : (
+              <img
+                className={styles['resp-copy-icon']}
+                src={
+                  theme === 'light'
+                    ? '/icons/copy_light.svg'
+                    : '/icons/copy_dark.svg'
+                }
+                alt="Copy"
+              />
+            )}
           </button>
         </div>
       )}

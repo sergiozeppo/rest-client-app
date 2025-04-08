@@ -24,7 +24,7 @@ padding: 1rem;
   border-radius: 8px;
   text-align: center;
   border: none;
-  color: var(--color-text-main);
+  color: var(--color-resp-copy-btn);
   font-weight: bold;
   cursor: pointer;
   font-size: 0.9rem;
@@ -33,6 +33,11 @@ padding: 1rem;
 
 .resp-copy-btn:hover {
     transform: scale(1.1);
+}
+
+.resp-copy-icon {
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .resp-line-numbers {
