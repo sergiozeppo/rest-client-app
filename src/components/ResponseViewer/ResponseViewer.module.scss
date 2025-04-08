@@ -1,4 +1,5 @@
 .resp-viewer {
+    position: relative;
 display: flex;
 background-color: var(--color-resp-bg);
 color: var(--color-resp-text);
@@ -9,6 +10,29 @@ font-size: 14px;
 width: 100%;
 overflow-x: auto;
 padding: 1rem;
+}
+
+.resp-copy-wrapper {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+
+.resp-copy-btn {
+  background: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: none;
+  color: var(--color-text-main);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.resp-copy-btn:hover {
+    transform: scale(1.1);
 }
 
 .resp-line-numbers {
