@@ -5,7 +5,12 @@ type ResponseViewerProps = {
 };
 
 export default function ResponseViewer({ data }: ResponseViewerProps) {
-  if (!data) return <div className={styles.viewer}>No response</div>;
+  if (!data)
+    return (
+      <div className={styles.viewer}>
+        No response yet. Try to get some data!
+      </div>
+    );
 
   const json = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
   const lines = json.split('\n');
