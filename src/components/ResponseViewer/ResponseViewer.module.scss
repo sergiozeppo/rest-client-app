@@ -1,0 +1,31 @@
+.resp-viewer {
+display: flex;
+background-color: var(--color-resp-bg);
+color: var(--color-resp-text);
+border-radius: 8px;
+border: 1px solid var(--color-resp-brdr);
+font-family: 'Fira Code', monospace;
+font-size: 14px;
+width: 100%;
+overflow-x: auto;
+padding: 1rem;
+}
+
+.resp-line-numbers {
+background-color: var(--color-resp-line-bg);
+text-align: right;
+user-select: none;
+}
+
+.resp-line-number {
+line-height: 1.5;
+padding-left: 1rem;
+}
+
+.resp-code-block {
+white-space: pre-wrap;
+}
+
+.resp-code-line {
+line-height: 1.5;
+}

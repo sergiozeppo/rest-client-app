@@ -17,6 +17,10 @@
   --accent-btn: #0ea5e9;
   --card-bg: #ffffff;
   --card-shadow: rgba(0, 0, 0, 0.1);
+  --color-resp-bg: #f9f9f9;
+  --color-resp-text: #222;
+  --color-resp-line-bg: #eaeaea;
+  --color-resp-brdr: #ccc;
 }
 
 .dark {
@@ -38,6 +42,10 @@
   --accent-btn: #0ea5e9;
   --card-bg: #ffffff;
   --card-shadow: rgba(0, 0, 0, 0.1);
+  --color-resp-bg: #1e1e1e;
+  --color-resp-text: #e4e8ee;
+  --color-resp-line-bg: #2c2c2c;
+  --color-resp-brdr: #fff;
 }
 
 body {
