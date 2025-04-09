@@ -5,7 +5,7 @@ import { routing } from '@/i18n/routing';
 import { ReactNode } from 'react';
 import styles from './App.module.scss';
 import { Header, Footer } from '@/components';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Fira_Code } from 'next/font/google';
 import { ThemeSwitcher as ThemeProvider } from '@/components';
 
 const geistSans = Geist({
@@ -15,6 +15,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
+
+const geistCode = Fira_Code({
+  variable: '--font-fira-code',
   subsets: ['latin'],
 });
 
@@ -37,7 +42,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <ThemeProvider className={`${geistSans.variable} ${geistMono.variable}`}>
+      <ThemeProvider
+        className={`${geistSans.variable} ${geistMono.variable} ${geistCode.variable}`}
+      >
         <NextIntlClientProvider>
           <div className={styles.app}>
             <Header />

@@ -17,7 +17,7 @@ type Response = {
 export const useFetch = create<Response>()(
   devtools(
     (set) => ({
-      response: [],
+      response: null,
       headers: '',
       status: 0,
       time: 0,
