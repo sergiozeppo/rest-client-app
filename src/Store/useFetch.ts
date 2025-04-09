@@ -7,6 +7,7 @@ type Response = {
   response: object;
   headers: object;
   status: number;
+  statusText: string;
   time: number;
   size: string;
   error: string | null;
@@ -20,6 +21,7 @@ export const useFetch = create<Response>()(
       response: null,
       headers: '',
       status: 0,
+      statusText: '',
       time: 0,
       size: 0,
       error: null,
@@ -34,12 +36,14 @@ export const useFetch = create<Response>()(
           body: JSON.stringify({ url, method }),
         });
         const data = await res.json();
+        console.log('data', data);
         const end = Date.now();
 
         set({
           response: data.response,
           headers: data.headers,
           status: data.status,
+          statusText: data.statusText,
           time: end - start,
           error: data?.error || null,
           size: (

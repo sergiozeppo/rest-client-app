@@ -22,6 +22,9 @@
   --color-resp-line-bg: #eaeaea;
   --color-resp-brdr: #ccc;
   --color-resp-copy-btn: #1e1e1e;
+  --color-status-green: #8bc34a;
+  --color-status-red: #f44336;
+  --color-status-yellow: #ff9800;
 }
 
 .dark {
@@ -48,6 +51,9 @@
   --color-resp-line-bg: #2c2c2c;
   --color-resp-brdr: #fff;
   --color-resp-copy-btn: #f9f9f9;
+  --color-status-green: #aeea00;
+  --color-status-red: #ff5252;
+  --color-status-yellow: #ffeb3b;
 }
 
 body {
