@@ -43,7 +43,7 @@ export default function QueryHistory() {
             {method}
           </div>
           <div onClick={() => helperClick(method, url)} className={styles.url}>
-            <p>{url}</p>
+            {url}
           </div>
           <button className={styles.btn} onClick={() => delHistory(id)}>
             {t('delete')}
