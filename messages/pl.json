@@ -33,6 +33,7 @@
   "QueryHistory": {
     "title": "Historia zapytań",
     "delete": "Usuń",
-    "deleteAll": "Usuń wszystko"
+    "deleteAll": "Usuń wszystko",
+    "empty": "Nie wykonałeś żadnych żądań. Tutaj jest pusto."
   }
 }
