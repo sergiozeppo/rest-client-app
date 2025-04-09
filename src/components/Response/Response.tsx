@@ -3,6 +3,7 @@ import { useFetch } from '@/Store/useFetch';
 import styles from './Response.module.scss';
 import { useState } from 'react';
 import { ResponseViewer } from '@/components';
+import getColoringStatus from '@/utils/getColoringStatus/getColoringStatus';
 
 const Head = () => {
   const response = useFetch((state) => state.headers);
@@ -21,14 +22,44 @@ export default function Response() {
   const statusText = useFetch((state) => state.statusText);
   const time = useFetch((state) => state.time);
   const size = useFetch((state) => state.size);
+  const coloringStatus = getColoringStatus({ status });
+
   return (
     <div className={styles.container}>
-      <div className={styles.heder}>
-        <p>
-          Status: {status} {` "${statusText}"`}
-        </p>
-        <p>Size: {size} kb</p>
-        <p>Time: {time} ms</p>
+      <div className={styles.header}>
+        {status > 0 ? (
+          <>
+            <p>
+              Status:{' '}
+              <span
+                style={{
+                  fontWeight: 'bold',
+                  color: coloringStatus,
+                }}
+              >
+                {status} {` "${statusText}"`}
+              </span>
+            </p>
+            <p>
+              Size:{' '}
+              <span style={{ fontWeight: 'bold', color: coloringStatus }}>
+                {size} kb
+              </span>
+            </p>
+            <p>
+              Time:{' '}
+              <span style={{ fontWeight: 'bold', color: coloringStatus }}>
+                {time} ms
+              </span>
+            </p>
+          </>
+        ) : (
+          <>
+            <p>Status: </p>
+            <p>Size: </p>
+            <p>Time: </p>
+          </>
+        )}
       </div>
       <div className={styles.body}>
         {Object.keys(views).map((key) => (
