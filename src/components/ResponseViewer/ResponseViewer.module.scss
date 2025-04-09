@@ -4,7 +4,7 @@
   background-color: var(--color-resp-bg);
   color: var(--color-resp-text);
   border-radius: 8px;
-  border: 1px solid var(--color-resp-brdr);
+  border: 0.1px solid var(--color-resp-brdr);
   font-size: 1rem;
   width: 100%;
   overflow-x: auto;
@@ -28,10 +28,6 @@
   cursor: pointer;
   font-size: 0.9rem;
   transition: color 0.2s ease;
-}
-
-.viewer {
-  padding: 20px;
 }
 
 .resp-copy-btn:hover {
