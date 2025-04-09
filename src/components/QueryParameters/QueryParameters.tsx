@@ -25,7 +25,13 @@ export default function QueryParameters() {
       )
     );
     setQuery(queryObj, false);
-  }, [QueryItems, setQuery]);
+    if (
+      (QueryItems.at(-1)?.checked && QueryItems.at(-1)?.key) ||
+      !QueryItems.length
+    ) {
+      addItem();
+    }
+  }, [QueryItems, setQuery, addItem]);
 
   return (
     <div className={styles.container}>
