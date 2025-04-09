@@ -10,6 +10,12 @@ export default function ResponseViewer() {
   const response = useFetch((state) => state.response);
   const error = useFetch((state) => state.error);
   const data = error || response;
+  if (!data)
+    return (
+      <div className={styles['resp-viewer']}>
+        No response yet. Try to get some data!
+      </div>
+    );
 
   const json = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
   const lines = json.split('\n');
