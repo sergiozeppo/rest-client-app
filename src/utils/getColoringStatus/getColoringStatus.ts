@@ -14,9 +14,9 @@ export default function getColoringStatus({
       ? 'var(--color-status-green)'
       : 'var(--color-status-red)';
   const timeColor =
-    time <= 200
+    time <= 500
       ? 'var(--color-status-green)'
-      : time <= 1000
+      : time <= 1500
         ? 'var(--color-status-yellow)'
         : 'var(--color-status-red)';
   const sizeColor =
