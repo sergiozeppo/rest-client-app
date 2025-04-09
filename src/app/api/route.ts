@@ -22,7 +22,12 @@ export async function POST(req: Request) {
       headers[key] = value;
     });
 
-    return Response.json({ status: res.status, headers, response });
+    return Response.json({
+      status: res.status,
+      statusText: res.statusText,
+      headers,
+      response,
+    });
   } catch {
     return Response.json({ status: 500, error: 'Request failed' });
   }

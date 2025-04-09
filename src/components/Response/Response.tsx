@@ -18,12 +18,15 @@ type View = keyof typeof views;
 export default function Response() {
   const [show, setShow] = useState<View>('Response');
   const status = useFetch((state) => state.status);
+  const statusText = useFetch((state) => state.statusText);
   const time = useFetch((state) => state.time);
   const size = useFetch((state) => state.size);
   return (
     <div className={styles.container}>
       <div className={styles.heder}>
-        <p>Status: {status}</p>
+        <p>
+          Status: {status} {` "${statusText}"`}
+        </p>
         <p>Size: {size} kb</p>
         <p>Time: {time} ms</p>
       </div>
