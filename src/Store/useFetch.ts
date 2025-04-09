@@ -17,8 +17,8 @@ type Response = {
 export const useFetch = create<Response>()(
   devtools(
     (set) => ({
-      response: null,
-      headers: '',
+      response: 'No response yet. Try to get some data!',
+      headers: 'No headers yet. Try to get some data!',
       status: 0,
       time: 0,
       size: 0,
