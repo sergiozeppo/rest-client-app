@@ -12,7 +12,7 @@ export default function ResponseViewer() {
   const data = error || response;
   if (!data)
     return (
-      <div className={styles.viewer}>
+      <div className={styles['resp-viewer']}>
         No response yet. Try to get some data!
       </div>
     );
