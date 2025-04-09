@@ -1,22 +1,22 @@
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 300px;
 }
 
 .query {
   display: flex;
   justify-content: space-between;
   height: 2rem;
-  width: calc(100% - 10px);
   border: 1px solid var(--color-text);
   border-radius: 5px;
-  margin: 5px;
+  margin: 0.5rem 1rem 0 1rem;
   overflow: hidden;
 }
 
 .body {
   display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 1rem;
 
   & > button {
     cursor: pointer;
@@ -25,7 +25,6 @@
     border: 1px solid var(--color-text);
     border-radius: 4px;
     padding: 8px 16px;
-    margin: 5px;
     box-shadow: 0px 8px 8px 2px var(--color-shadow);
     transition: all 0.2s ease-in-out;
 
@@ -36,7 +35,7 @@
     &.active {
       color: var(--color-text-btn-active);
       border-color: var(--color-text-btn-active);
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 }
@@ -44,8 +43,9 @@
 .content {
   flex-grow: 1;
   overflow: auto;
-  margin: 20px;
-  padding: 20px;
+  margin: 0.5rem 1rem;
+  padding: 1rem;
   border: 0.1px solid var(--color-text);
+  border-radius: 8px;
   box-shadow: 0px 0px 30px var(--color-shadow);
 }
