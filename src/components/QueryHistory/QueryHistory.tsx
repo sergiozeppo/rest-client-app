@@ -22,12 +22,18 @@ export default function QueryHistory() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h3>{t('title')}</h3>
-        <button className={styles.btn} onClick={delAllHistory}>
-          {t('deleteAll')}
-        </button>
-      </div>
+      {history.length === 0 ? (
+        <div className={styles.empty}>
+          <p>{t('empty')}</p>
+        </div>
+      ) : (
+        <div className={styles.header}>
+          <h3>{t('title')}</h3>
+          <button className={styles.btn} onClick={delAllHistory}>
+            {t('deleteAll')}
+          </button>
+        </div>
+      )}
       {history.map(({ id, method, url }) => (
         <div className={styles.item} key={id}>
           <div
