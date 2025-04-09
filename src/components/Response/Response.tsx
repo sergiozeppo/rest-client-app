@@ -6,7 +6,7 @@ import { ResponseViewer } from '@/components';
 
 const Head = () => {
   const response = useFetch((state) => state.headers);
-  return <pre>{JSON.stringify(response, null, 2)}</pre>;
+  return <pre className={styles.pre}>{JSON.stringify(response, null, 2)}</pre>;
 };
 
 const views = {
