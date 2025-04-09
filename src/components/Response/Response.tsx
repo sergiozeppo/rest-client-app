@@ -4,6 +4,7 @@ import styles from './Response.module.scss';
 import { useState } from 'react';
 import { ResponseViewer } from '@/components';
 import getColoringStatus from '@/utils/getColoringStatus/getColoringStatus';
+import { getStatusText } from '@/utils/getStatusText/getStatusText';
 
 const Head = () => {
   const response = useFetch((state) => state.headers);
@@ -19,10 +20,10 @@ type View = keyof typeof views;
 export default function Response() {
   const [show, setShow] = useState<View>('Response');
   const status = useFetch((state) => state.status);
-  const statusText = useFetch((state) => state.statusText);
+  const statusText = getStatusText(status);
   const time = useFetch((state) => state.time);
   const size = useFetch((state) => state.size);
-  const coloringStatus = getColoringStatus({ status });
+  const coloringStatus = getColoringStatus({ status, time, size });
 
   return (
     <div className={styles.container}>
@@ -34,7 +35,7 @@ export default function Response() {
               <span
                 style={{
                   fontWeight: 'bold',
-                  color: coloringStatus,
+                  color: coloringStatus.statusColor,
                 }}
               >
                 {status} {` "${statusText}"`}
@@ -42,13 +43,17 @@ export default function Response() {
             </p>
             <p>
               Size:{' '}
-              <span style={{ fontWeight: 'bold', color: coloringStatus }}>
+              <span
+                style={{ fontWeight: 'bold', color: coloringStatus.sizeColor }}
+              >
                 {size} kb
               </span>
             </p>
             <p>
               Time:{' '}
-              <span style={{ fontWeight: 'bold', color: coloringStatus }}>
+              <span
+                style={{ fontWeight: 'bold', color: coloringStatus.timeColor }}
+              >
                 {time} ms
               </span>
             </p>

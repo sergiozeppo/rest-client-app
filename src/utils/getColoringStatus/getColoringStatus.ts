@@ -9,9 +9,22 @@ export default function getColoringStatus({
   time,
   size,
 }: ColoringProps) {
-  const statusColor = status >= 200 && status < 300 ? 'green' : 'red';
-  const timeColor = time <= 200 ? 'green' : time <= 1000 ? 'yellow' : 'red';
-  const sizeColor = +size <= 100 ? 'green' : +size <= 500 ? 'yellow' : 'red';
+  const statusColor =
+    status >= 200 && status < 300
+      ? 'var(--color-status-green)'
+      : 'var(--color-status-red)';
+  const timeColor =
+    time <= 200
+      ? 'var(--color-status-green)'
+      : time <= 1000
+        ? 'var(--color-status-yellow)'
+        : 'var(--color-status-red)';
+  const sizeColor =
+    +size <= 100
+      ? 'var(--color-status-green)'
+      : +size <= 500
+        ? 'var(--color-status-yellow)'
+        : 'var(--color-status-red)';
 
   return {
     statusColor,
