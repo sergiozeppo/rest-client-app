@@ -35,6 +35,22 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <div className={s.inputContainer}>
+        <label className={s.label} htmlFor="username">
+          Username
+        </label>
+        <input
+          {...register('username')}
+          className={`${s.input} ${errors.username ? s.inputError : ''}`}
+          type="text"
+          placeholder="Username"
+        />
+        <div className={s.errorContainer}>
+          {errors.username && (
+            <p className={s.error}>{errors.username.message}</p>
+          )}
+        </div>
+      </div>
+      <div className={s.inputContainer}>
         <label className={s.label} htmlFor="email">
           Email
         </label>

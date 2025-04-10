@@ -15,6 +15,11 @@ async function signUpAction(data: FormData) {
   const signUpData = {
     email: data.email,
     password: data.passwordForm.password,
+    options: {
+      data: {
+        user_name: data.username,
+      },
+    },
   };
 
   const { error } = await supabase.auth.signUp(signUpData);
