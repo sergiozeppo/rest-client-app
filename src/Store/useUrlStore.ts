@@ -1,3 +1,4 @@
+import { decodeBase64 } from '@/utils/base64';
 import { nanoid } from 'nanoid';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
@@ -47,8 +48,7 @@ export const useUrl = create<Url>()(
       query: {},
       QueryItems: [],
       setParams: (params) => {
-        const url = params?.url?.split('%')[0] || '';
-        const valueBase = decodeURIComponent(atob(url));
+        const valueBase = decodeBase64(params);
         set((state) => ({
           locale: params.locale || 'en',
           params: params || {},

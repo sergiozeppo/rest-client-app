@@ -29,15 +29,14 @@ export const useFetch = create<Response>()(
       fetch: async (url) => {
         const method = useUrl.getState().method;
         const setHistory = useHistory.getState().setHistory;
-        if (url) setHistory(method, url);
         const start = Date.now();
         const res = await fetch('/api', {
           method: 'POST',
           body: JSON.stringify({ url, method }),
         });
         const data = await res.json();
-        console.log('data', data);
         const end = Date.now();
+        if (url && data.status < 500) setHistory(method, url);
 
         set({
           response: data.response,

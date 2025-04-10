@@ -5,6 +5,7 @@ import { useUrl } from '@/Store/useUrlStore';
 import { useRouter } from '@/i18n/navigation';
 import { useFetch } from '@/Store/useFetch';
 import { useTranslations } from 'next-intl';
+import { encodeBase64 } from '@/utils/base64';
 
 export default function SearchInput() {
   const [isPending, startTransition] = useTransition();
@@ -37,13 +38,15 @@ export default function SearchInput() {
 
     try {
       const { origin, pathname, search } = new URL(inputUrl);
-      const base64 = btoa(encodeURIComponent(origin + pathname));
+      const base64 = encodeBase64(origin + pathname);
       setValueBase(origin + pathname);
       router.replace({
         pathname: `/${params.method || 'get'}/${base64}${search}`,
       });
-    } catch (error) {
-      console.error('Invalid URL:', error);
+    } catch {
+      router.replace({
+        pathname: `/${params.method || 'get'}`,
+      });
     }
   };
 

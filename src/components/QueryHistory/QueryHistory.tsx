@@ -4,6 +4,7 @@ import styles from './QueryHistory.module.scss';
 import { useHistory } from '@/Store/History';
 import { useUrl } from '@/Store/useUrlStore';
 import { useRouter } from '@/i18n/navigation';
+import { encodeBase64 } from '@/utils/base64';
 
 export default function QueryHistory() {
   const t = useTranslations('QueryHistory');
@@ -12,12 +13,18 @@ export default function QueryHistory() {
   const { setValueBase } = useUrl();
 
   function helperClick(method: string, url: string) {
-    const { origin, pathname, search } = new URL(url);
-    const base64 = btoa(encodeURIComponent(origin + pathname));
-    setValueBase(origin + pathname);
-    router.replace({
-      pathname: `/${method}/${base64}${search}`,
-    });
+    try {
+      const { origin, pathname, search } = new URL(url);
+      const base64 = encodeBase64(origin + pathname);
+      setValueBase(origin + pathname);
+      router.replace({
+        pathname: `/${method}/${base64}${search}`,
+      });
+    } catch {
+      router.replace({
+        pathname: `/${method}`,
+      });
+    }
   }
 
   return (
