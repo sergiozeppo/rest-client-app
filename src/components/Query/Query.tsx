@@ -6,13 +6,14 @@ import {
   SelectMethod,
   QueryParameters,
   QueryHistory,
+  QueryBody,
 } from '@/components';
 
 const views = {
   History: <QueryHistory />,
   Query: <QueryParameters />,
-  Headers: <p>Component with HTTP Headers</p>,
-  Body: <p>Component with Body</p>,
+  'Headers and Body': <QueryBody />,
+  Variables: <p>Component with Variables</p>,
 };
 type View = keyof typeof views;
 

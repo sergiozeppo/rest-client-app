@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { useUrl } from './useUrlStore';
 import { useHistory } from './History';
+import { useHeadersBody } from './useHeadersBody';
 
 type Response = {
   response: object;
@@ -28,11 +29,12 @@ export const useFetch = create<Response>()(
 
       fetch: async (url) => {
         const method = useUrl.getState().method;
+        const { header, body } = useHeadersBody.getState();
         const setHistory = useHistory.getState().setHistory;
         const start = Date.now();
         const res = await fetch('/api', {
           method: 'POST',
-          body: JSON.stringify({ url, method }),
+          body: JSON.stringify({ url, method, header, body }),
         });
         const data = await res.json();
         const end = Date.now();
