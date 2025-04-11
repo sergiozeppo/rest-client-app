@@ -63,22 +63,26 @@ export default function Header({ initialSession }: HeaderProps) {
     >
       <div className={styles.nav_container}>
         <Logo />
-        {session && (
-          <Link href="/get" className={styles.btn}>
-            {t('rest-client')}
-          </Link>
-        )}
       </div>
+      {session && (
+        <span className={styles.welcome}>
+          {t('welcome', {
+            username:
+              session.user.user_metadata.user_name || session.user.email,
+          })}
+        </span>
+      )}
       <div className={styles.buttons_container}>
+        <div className={styles.buttons_switcher}>
+          <LocaleSwitcher />
+          <ThemeSwitcher />
+        </div>
         <div className={styles.buttons_auth}>
           {session ? (
             <>
-              <span className={styles.welcome}>
-                {t('welcome', {
-                  username:
-                    session.user.user_metadata.user_name || session.user.email,
-                })}
-              </span>
+              <Link href="/get" className={styles.btn}>
+                {t('rest-client')}
+              </Link>
               <button onClick={handleLogout} className={styles.btn}>
                 {t('logout')}
               </button>
@@ -93,10 +97,6 @@ export default function Header({ initialSession }: HeaderProps) {
               </Link>
             </>
           )}
-        </div>
-        <div className={styles.buttons_switcher}>
-          <LocaleSwitcher />
-          <ThemeSwitcher />
         </div>
       </div>
     </div>
