@@ -19,10 +19,19 @@
   }
 }
 
+.nav_container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  .btn {
+    height: 50%;
+  }
+}
+
 .buttons_container {
   display: flex;
-  justify-content: space-between;
-  width: 450px;
+  gap: 30px;
 }
 
 .buttons_switcher {

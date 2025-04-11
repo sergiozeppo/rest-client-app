@@ -6,7 +6,8 @@
     "sign_in": "Zaloguj się",
     "sign_up": "Zarejestruj się",
     "logout": "Wyloguj się",
-    "welcome": "Witaj, {username}"
+    "welcome": "Witaj, {username}",
+    "rest-client": "Klient REST"
   },
   "Footer": {
     "Rights": "Wszelkie prawa zastrzeżone"

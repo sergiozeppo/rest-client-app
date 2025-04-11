@@ -6,7 +6,8 @@
     "sign_in": "Войти",
     "sign_up": "Регистрация",
     "logout": "Выйти",
-    "welcome": "Добро пожаловать, {username}"
+    "welcome": "Добро пожаловать, {username}",
+    "rest-client": "Клиент REST"
   },
   "Footer": {
     "Rights": "Все права защищены"

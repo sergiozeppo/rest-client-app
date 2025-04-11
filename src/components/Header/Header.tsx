@@ -61,15 +61,15 @@ export default function Header({ initialSession }: HeaderProps) {
         isSticky ? `${styles.container} ${styles.sticky}` : styles.container
       }
     >
-      <Logo />
-      <Link href="/get" className={styles.btn}>
-        temporarily/временно
-      </Link>
+      <div className={styles.nav_container}>
+        <Logo />
+        {session && (
+          <Link href="/get" className={styles.btn}>
+            {t('rest-client')}
+          </Link>
+        )}
+      </div>
       <div className={styles.buttons_container}>
-        <div className={styles.buttons_switcher}>
-          <LocaleSwitcher />
-          <ThemeSwitcher />
-        </div>
         <div className={styles.buttons_auth}>
           {session ? (
             <>
@@ -93,6 +93,10 @@ export default function Header({ initialSession }: HeaderProps) {
               </Link>
             </>
           )}
+        </div>
+        <div className={styles.buttons_switcher}>
+          <LocaleSwitcher />
+          <ThemeSwitcher />
         </div>
       </div>
     </div>
