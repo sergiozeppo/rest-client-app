@@ -72,7 +72,7 @@ export default function SignInForm() {
           required
         />
       </div>
-      {authError && <p className={s.authError}>{authError}</p>}
+      <div className={s.authError}>{authError}</div>
       <button type="submit" className={s.submitButton} disabled={isSubmitting}>
         {t('submit')}
       </button>
