@@ -3,8 +3,10 @@
     "title": "Привет!"
   },
   "Header": {
-    "Sign_In": "Войти",
-    "Sign_up": "Регистрация"
+    "sign_in": "Войти",
+    "sign_up": "Регистрация",
+    "logout": "Выйти",
+    "welcome": "Добро пожаловать, {username}"
   },
   "Footer": {
     "Rights": "Все права защищены"
@@ -15,6 +17,8 @@
   "Sign-up": {
     "title": "Начните",
     "subtitle": "Создайте новый аккаунт",
+    "username": "Имя пользователя",
+    "email": "Email",
     "divider": "или",
     "password": "Пароль",
     "confirm-password": "Подтвердите пароль",
@@ -22,6 +26,17 @@
     "sign-up": "Зарегистрироваться",
     "account": "Уже есть аккаунт?",
     "redirect": "Войти сейчас"
+  },
+  "Sign-in": {
+    "title": "Добро пожаловать обратно",
+    "subtitle": "Войдите в свой аккаунт",
+    "divider": "или",
+    "email": "Email",
+    "password": "Пароль",
+    "github": "Продолжить с GitHub",
+    "submit": "Войти",
+    "account": "Нет аккаунта?",
+    "redirect": "Зарегистрироваться сейчас"
   },
   "QueryParameters": {
     "title": "Параметры запроса",

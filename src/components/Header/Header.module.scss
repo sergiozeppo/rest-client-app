@@ -41,6 +41,13 @@
   justify-content: right;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin-right: 10px;
 }
 
 .btn {
