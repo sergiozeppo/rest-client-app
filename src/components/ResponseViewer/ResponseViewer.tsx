@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './ResponseViewer.module.scss';
 import { useTheme } from '@/Store/Theme';
 import { useFetch } from '@/Store/useFetch';
@@ -9,11 +9,22 @@ export default function ResponseViewer() {
   const { theme } = useTheme();
   const response = useFetch((state) => state.response);
   const error = useFetch((state) => state.error);
+  const isLoading = useFetch((state) => state.isLoading);
+  const [loadingState, setLoadingState] = useState(isLoading);
+
+  useEffect(() => {
+    setLoadingState(isLoading);
+  }, [isLoading]);
+
   const data = error || response;
   if (!data)
     return (
-      <div className={styles['resp-viewer']}>
-        No response yet. Try to get some data!
+      <div
+        className={`${styles['resp-viewer']} ${
+          loadingState ? styles['loading'] : ''
+        }`}
+      >
+        {!loadingState && 'No response yet. Try to get some data!'}
       </div>
     );
 
@@ -31,7 +42,11 @@ export default function ResponseViewer() {
   };
 
   return (
-    <div className={styles['resp-viewer']}>
+    <div
+      className={`${styles['resp-viewer']} ${
+        loadingState ? styles['loading'] : ''
+      }`}
+    >
       {json && (
         <div className={styles['resp-copy-wrapper']}>
           <button className={styles['resp-copy-btn']} onClick={handleCopy}>
@@ -51,14 +66,16 @@ export default function ResponseViewer() {
           </button>
         </div>
       )}
-      <pre className={styles['resp-code-block']}>
-        {lines.map((line, i) => (
-          <div key={i} className={styles['resp-code-line']}>
-            <span className={styles['resp-line-number']}>{i + 1}</span>
-            <span className={styles['resp-line-text']}>{line}</span>
-          </div>
-        ))}
-      </pre>
+      {!loadingState && (
+        <pre className={styles['resp-code-block']}>
+          {lines.map((line, i) => (
+            <div key={i} className={styles['resp-code-line']}>
+              <span className={styles['resp-line-number']}>{i + 1}</span>
+              <span className={styles['resp-line-text']}>{line}</span>
+            </div>
+          ))}
+        </pre>
+      )}
     </div>
   );
 }
