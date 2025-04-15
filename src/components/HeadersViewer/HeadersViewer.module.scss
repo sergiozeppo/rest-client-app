@@ -1,13 +1,14 @@
 .hdrs-viewer {
     position: relative;
     display: flex;
+    flex-direction: column;
     background-color: var(--color-hdrs-bg);
     color: var(--color-hdrs-text);
     border-radius: 8px;
     border: 0.1px solid var(--color-hdrs-brdr);
     font-size: 1rem;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     padding: 1rem;
   }
   
@@ -61,7 +62,10 @@
   }
   
   .hdrs-line-text {
-    white-space: pre-wrap;
+    white-space: break-spaces; 
+    word-break: break-word;   
+    overflow-wrap: anywhere;  
     font-family: inherit;
+    flex: 1;
   }
   
