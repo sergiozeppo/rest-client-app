@@ -5,15 +5,11 @@ import { useState } from 'react';
 import { ResponseViewer } from '@/components';
 import getColoringStatus from '@/utils/getColoringStatus/getColoringStatus';
 import { getStatusText } from '@/utils/getStatusText/getStatusText';
-
-const Head = () => {
-  const response = useFetch((state) => state.headers);
-  return <pre className={styles.pre}>{JSON.stringify(response, null, 2)}</pre>;
-};
+import HeadersViewer from '../HeadersViewer/HeadersViewer';
 
 const views = {
   Response: <ResponseViewer />,
-  Headers: <Head />,
+  Headers: <HeadersViewer />,
 };
 
 type View = keyof typeof views;

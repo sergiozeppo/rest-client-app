@@ -20,7 +20,7 @@ export const useFetch = create<Response>()(
   devtools(
     (set) => ({
       response: null,
-      headers: '',
+      headers: null,
       status: 0,
       statusText: '',
       time: 0,

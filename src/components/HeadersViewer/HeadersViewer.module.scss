@@ -1,0 +1,67 @@
+.hdrs-viewer {
+    position: relative;
+    display: flex;
+    background-color: var(--color-hdrs-bg);
+    color: var(--color-hdrs-text);
+    border-radius: 8px;
+    border: 0.1px solid var(--color-hdrs-brdr);
+    font-size: 1rem;
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+  
+  .hdrs-copy-wrapper {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+  }
+  
+  .hdrs-copy-btn {
+    background: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: none;
+    color: var(--color-hdrs-copy-btn);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+  
+  .hdrs-copy-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .hdrs-copy-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .hdrs-line-number {
+    background-color: var(--color-hdrs-line-bg);
+    user-select: none;
+    display: inline-block;
+    margin: 0 0.5rem;
+  }
+  
+  .hdrs-code-line {
+    display: flex;
+    font-family: var(--font-fira-code);
+    font-size: 1rem;
+  }
+  
+  .hdrs-line-number {
+    min-width: 2.5rem;
+    text-align: center;
+    margin-right: 0.5rem;
+    background-color: var(--color-hdrs-line-bg);
+    font-family: inherit;
+  }
+  
+  .hdrs-line-text {
+    white-space: pre-wrap;
+    font-family: inherit;
+  }
+  
