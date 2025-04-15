@@ -1,12 +1,11 @@
-import { getTranslations } from 'next-intl/server';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import s from './SignUp.module.scss';
 import { Link } from '@/i18n/navigation';
 import SignUpForm from '@/components/SignUpForm/SignUpForm';
 import { FormData } from '@/utils/validation';
-import { createClient } from '@/utils/supabase/server';
 import { redirect } from '@/i18n/navigation';
-import GitHubLogo from '@/components/GitHubLogo/GitHubLogo';
+import { createClient } from '@/utils/supabase/server';
+import GithubSignInButton from '@/components/GithubSignInButton/GithubSignInButton';
 
 async function signUpAction(data: FormData) {
   'use server';
@@ -16,6 +15,11 @@ async function signUpAction(data: FormData) {
   const signUpData = {
     email: data.email,
     password: data.passwordForm.password,
+    options: {
+      data: {
+        user_name: data.username,
+      },
+    },
   };
 
   const { error } = await supabase.auth.signUp(signUpData);
@@ -24,35 +28,11 @@ async function signUpAction(data: FormData) {
     return { error: error.message };
   }
 
+  await supabase.auth.signOut();
   redirect({
     locale: locale,
-    href: '/',
+    href: '/sign-in',
   });
-}
-
-async function signInWithGithub() {
-  'use server';
-
-  const supabase = await createClient();
-  const locale = await getLocale();
-
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'github',
-    options: {
-      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
-    },
-  });
-
-  if (error) {
-    return { error: error.message };
-  }
-
-  if (data.url) {
-    redirect({
-      locale: locale,
-      href: data.url,
-    });
-  }
 }
 
 export default async function SignUp() {
@@ -63,9 +43,7 @@ export default async function SignUp() {
       <div className={s.container}>
         <h1 className={s.title}>{t('title')}</h1>
         <h2 className={s.subtitle}>{t('subtitle')}</h2>
-        <button className={s.authButton} onClick={signInWithGithub}>
-          {t('github')} <GitHubLogo width={30} height={30} />
-        </button>
+        <GithubSignInButton />
         <div className={s.divider}>
           <hr className={s.line} />
           <span>{t('divider')}</span>

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from './App.module.scss';
 
 export default function Page() {
@@ -10,14 +9,6 @@ export default function Page() {
           The modern way to test and manage your RESTful APIs! Never stop
           exploring, neverREST!
         </p>
-        <div className={styles.actions}>
-          <Link href="/sign-in" className={styles.btn}>
-            Sign In
-          </Link>
-          <Link href="/sign-up" className={styles.btn}>
-            Sign up
-          </Link>
-        </div>
       </header>
 
       <section className={styles.section}>
