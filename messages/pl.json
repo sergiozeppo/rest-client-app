@@ -3,8 +3,11 @@
     "title": "Witaj!"
   },
   "Header": {
-    "Sign_In": "Zaloguj się",
-    "Sign_up": "Zarejestruj się"
+    "sign_in": "Zaloguj się",
+    "sign_up": "Zarejestruj się",
+    "logout": "Wyloguj się",
+    "welcome": "Witaj, {username}",
+    "rest-client": "Klient REST"
   },
   "Footer": {
     "Rights": "Wszelkie prawa zastrzeżone"
@@ -15,13 +18,26 @@
   "Sign-up": {
     "title": "Zacznij",
     "subtitle": "Utwórz nowe konto",
+    "username": "Nazwa użytkownika",
     "divider": "lub",
+    "email": "Email",
     "password": "Hasło",
     "confirm-password": "Potwierdź hasło",
     "github": "Kontynuuj z GitHub",
     "sign-up": "Zarejestruj się",
     "account": "Masz już konto?",
     "redirect": "Zaloguj się teraz"
+  },
+  "Sign-in": {
+    "title": "Witaj z powrotem",
+    "subtitle": "Zaloguj się do swojego konta",
+    "divider": "lub",
+    "email": "Email",
+    "password": "Hasło",
+    "github": "Kontynuuj z GitHub",
+    "submit": "Zaloguj się",
+    "account": "Nie masz jeszcze konta?",
+    "redirect": "Zarejestruj się teraz"
   },
   "QueryParameters": {
     "title": "Parametry zapytania",

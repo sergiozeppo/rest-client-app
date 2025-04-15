@@ -3,8 +3,11 @@
     "title": "Hello!"
   },
   "Header": {
-    "Sign_In": "Sign In",
-    "Sign_up": "Sign up"
+    "sign_in": "Sign In",
+    "sign_up": "Sign up",
+    "logout": "Logout",
+    "welcome": "Welcome, {username}",
+    "rest-client": "Rest Client"
   },
   "Footer": {
     "Rights": "All rights reserved"
@@ -16,12 +19,25 @@
     "title": "Get started",
     "subtitle": "Create new account",
     "divider": "or",
+    "username": "Username",
+    "email": "Email",
     "password": "Password",
     "confirm-password": "Confirm Password",
     "github": "Continue with GitHub",
     "sign-up": "Sign up",
     "account": "Already have an account?",
     "redirect": "Sign In Now"
+  },
+  "Sign-in": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to your account",
+    "divider": "or",
+    "email": "Email",
+    "password": "Password",
+    "github": "Continue with GitHub",
+    "submit": "Sign in",
+    "account": "Don't have an account?",
+    "redirect": "Sign Up Now"
   },
   "QueryParameters": {
     "title": "Query Parameters",

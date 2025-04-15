@@ -19,10 +19,21 @@
   }
 }
 
+.nav_container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  .btn {
+    height: 50%;
+  }
+}
+
 .buttons_container {
   display: flex;
   justify-content: space-between;
-  width: 450px;
+  gap: 20px;
+  width: 500px;
 }
 
 .buttons_switcher {
@@ -41,6 +52,13 @@
   justify-content: right;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin-right: 10px;
 }
 
 .btn {
@@ -52,6 +70,7 @@
   padding: 8px 16px;
   box-shadow: 0px 8px 8px 2px var(--color-shadow);
   transition: all 0.2s ease-in-out;
+  font-size: 1rem;
 
   &:active {
     box-shadow: none;

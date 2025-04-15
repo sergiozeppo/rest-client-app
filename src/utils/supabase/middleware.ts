@@ -10,28 +10,56 @@ export async function updateSession(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        get(name: string) {
-          return request.cookies.get(name)?.value;
+        getAll() {
+          return request.cookies.getAll();
         },
-        set(name: string, value: string, options) {
-          response.cookies.set({
-            name,
-            value,
-            ...options,
-          });
-        },
-        remove(name: string, options) {
-          response.cookies.set({
-            name,
-            value: '',
-            ...options,
-          });
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) =>
+            request.cookies.set(name, value)
+          );
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          );
         },
       },
     }
   );
 
-  await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const locale =
+    response.headers.get('x-middleware-request-x-next-intl-locale') || 'en';
+
+  // Get the current path without the locale prefix
+  const pathWithoutLocale = request.nextUrl.pathname
+    .split('/')
+    .slice(2)
+    .join('/');
+
+  // Check if it's a public route (without the locale prefix)
+  const isPublicRoute =
+    pathWithoutLocale === 'sign-in' ||
+    pathWithoutLocale === 'sign-up' ||
+    pathWithoutLocale.startsWith('auth/');
+
+  // Skip middleware for auth callback route
+  if (pathWithoutLocale.startsWith('auth/callback')) {
+    return response;
+  }
+
+  // Redirect user which is not logged in
+  if (!user && !isPublicRoute) {
+    const url = new URL(`/${locale}/sign-in`, request.url);
+    return NextResponse.redirect(url);
+  }
+
+  // Redirect logged user from sign in/ sign up pages
+  if (user && isPublicRoute) {
+    const url = new URL(`/${locale}`, request.url);
+    return NextResponse.redirect(url);
+  }
 
   return response;
 }
