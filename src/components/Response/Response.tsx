@@ -2,10 +2,9 @@
 import { useFetch } from '@/Store/useFetch';
 import styles from './Response.module.scss';
 import { useState } from 'react';
-import { ResponseViewer } from '@/components';
+import { ResponseViewer, HeadersViewer } from '@/components';
 import getColoringStatus from '@/utils/getColoringStatus/getColoringStatus';
 import { getStatusText } from '@/utils/getStatusText/getStatusText';
-import HeadersViewer from '../HeadersViewer/HeadersViewer';
 
 const views = {
   Response: <ResponseViewer />,

@@ -11,3 +11,4 @@ export { default as QueryParameters } from './QueryParameters/QueryParameters';
 export { default as QueryHistory } from './QueryHistory/QueryHistory';
 export { default as QueryBody } from './QueryBody/QueryBody';
 export { default as ResponseViewer } from './ResponseViewer/ResponseViewer';
+export { default as HeadersViewer } from './HeadersViewer/HeadersViewer';
