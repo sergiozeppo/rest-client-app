@@ -17,6 +17,7 @@ export default function HeadersViewer() {
 
   const json = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
   const lines = json.split('\n');
+  const cleanedLines = lines.map((line) => line.replace(/\\/g, ''));
 
   return (
     <div className={styles['hdrs-viewer']}>
@@ -26,7 +27,7 @@ export default function HeadersViewer() {
         </div>
       )}
       <pre className={styles['hdrs-code-block']}>
-        {lines.map((line, i) => (
+        {cleanedLines.map((line, i) => (
           <div key={i} className={styles['hdrs-code-line']}>
             <span className={styles['hdrs-line-text']}>{line}</span>
           </div>
