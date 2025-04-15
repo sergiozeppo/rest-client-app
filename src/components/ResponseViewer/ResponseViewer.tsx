@@ -1,29 +1,24 @@
 'use client';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
 import styles from './ResponseViewer.module.scss';
 import { useTheme } from '@/Store/Theme';
 import { useFetch } from '@/Store/useFetch';
+import { useLoader } from '@/Store/useLoader';
+import Loader from '../Loader/Loader';
 
 export default function ResponseViewer() {
   const [copied, setCopied] = useState(false);
   const { theme } = useTheme();
   const response = useFetch((state) => state.response);
   const error = useFetch((state) => state.error);
-  const isLoading = useFetch((state) => state.isLoading);
-  const [loadingState, setLoadingState] = useState(isLoading);
-
-  useEffect(() => {
-    setLoadingState(isLoading);
-  }, [isLoading]);
+  const loadingState = useLoader();
 
   const data = error || response;
   if (!data)
     return (
-      <div
-        className={`${styles['resp-viewer']} ${
-          loadingState ? styles['loading'] : ''
-        }`}
-      >
+      <div className={styles['resp-viewer']}>
+        {loadingState && <Loader />}
         {!loadingState && 'No response yet. Try to get some data!'}
       </div>
     );
@@ -42,11 +37,8 @@ export default function ResponseViewer() {
   };
 
   return (
-    <div
-      className={`${styles['resp-viewer']} ${
-        loadingState ? styles['loading'] : ''
-      }`}
-    >
+    <div className={styles['resp-viewer']}>
+      {loadingState && <Loader />}
       {json && (
         <div className={styles['resp-copy-wrapper']}>
           <button className={styles['resp-copy-btn']} onClick={handleCopy}>
