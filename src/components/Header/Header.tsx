@@ -9,12 +9,8 @@ import { signOut } from '@/utils/auth';
 import { Session } from '@supabase/supabase-js';
 import { createClient } from '@/utils/supabase/client';
 
-type HeaderProps = {
-  initialSession: Session | null;
-};
-
-export default function Header({ initialSession }: HeaderProps) {
-  const [session, setSession] = useState<Session | null>(initialSession);
+export default function Header() {
+  const [session, setSession] = useState<Session | null>(null);
   const supabase = createClient();
   const [isSticky, setIsSticky] = useState(false);
   const locale = useLocale();
