@@ -12,6 +12,7 @@ type Response = {
   time: number;
   size: string;
   error: string | null;
+  headersCount: number;
   isLoading: boolean;
   // eslint-disable-next-line no-unused-vars
   fetch: (e?: string) => void;
@@ -21,7 +22,8 @@ export const useFetch = create<Response>()(
   devtools(
     (set) => ({
       response: null,
-      headers: '',
+      headers: null,
+      headersCount: 0,
       status: 0,
       statusText: '',
       time: 0,
@@ -44,11 +46,16 @@ export const useFetch = create<Response>()(
           const data = await res.json();
           const end = Date.now();
 
+          const headersCount = data.headers
+            ? Object.keys(data.headers).length
+            : 0;
+
           if (url && data.status < 500) setHistory(method, url);
 
           set({
             response: data.response,
             headers: data.headers,
+            headersCount,
             status: data.status,
             statusText: data.statusText,
             time: end - start,

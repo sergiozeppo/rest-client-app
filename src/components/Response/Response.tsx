@@ -2,18 +2,13 @@
 import { useFetch } from '@/Store/useFetch';
 import styles from './Response.module.scss';
 import { useState } from 'react';
-import { ResponseViewer } from '@/components';
+import { ResponseViewer, HeadersViewer } from '@/components';
 import getColoringStatus from '@/utils/getColoringStatus/getColoringStatus';
 import { getStatusText } from '@/utils/getStatusText/getStatusText';
 
-const Head = () => {
-  const response = useFetch((state) => state.headers);
-  return <pre className={styles.pre}>{JSON.stringify(response, null, 2)}</pre>;
-};
-
 const views = {
   Response: <ResponseViewer />,
-  Headers: <Head />,
+  Headers: <HeadersViewer />,
 };
 
 type View = keyof typeof views;
@@ -21,6 +16,7 @@ export default function Response() {
   const [show, setShow] = useState<View>('Response');
   const status = useFetch((state) => state.status);
   const statusText = getStatusText(status);
+  const headersCount = useFetch((state) => state.headersCount);
   const time = useFetch((state) => state.time);
   const size = useFetch((state) => state.size);
   const coloringStatus = getColoringStatus({ status, time, size });
@@ -68,13 +64,16 @@ export default function Response() {
       </div>
       <div className={styles.body}>
         {Object.keys(views).map((key) => (
-          <button
-            className={show == key ? `${styles.active}` : ''}
+          <div
             key={key}
+            className={`${styles.tab} ${show === key ? styles.active : ''}`}
             onClick={() => setShow(key as View)}
           >
             {key}
-          </button>
+            {key === 'Headers' && headersCount > 0 && (
+              <span className={styles.count}>{headersCount}</span>
+            )}
+          </div>
         ))}
       </div>
       <div className={styles.content}>{views[show]}</div>

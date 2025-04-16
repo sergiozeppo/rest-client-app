@@ -1,0 +1,43 @@
+.hdrs-viewer {
+  position: relative;
+  display: flex;
+  background-color: var(--color-hdrs-bg);
+  color: var(--color-hdrs-text);
+  border-radius: 8px;
+  border: 0.1px solid var(--color-hdrs-brdr);
+  font-size: 1rem;
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.hdrs-table {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+}
+
+.hdrs-row {
+  display: contents;
+}
+
+.hdrs-cell {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-hdrs-brdr);
+  word-break: break-word;
+}
+
+.hdrs-row:first-of-type .hdrs-cell {
+  border-top: none;
+  font-weight: bold;
+  background-color: var(--color-hdrs-line-bg);
+}
+.hdrs-row:last-of-type .hdrs-cell {
+  border-bottom: none;
+}
+.hdrs-cell:first-child {
+  border-left: none;
+}
+.hdrs-cell:last-child {
+  border-right: none;
+}
