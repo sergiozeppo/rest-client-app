@@ -30,7 +30,7 @@ export default function Header() {
     await signOut();
     redirect({
       locale: locale,
-      href: '/sign-in',
+      href: '/',
     });
   };
 
