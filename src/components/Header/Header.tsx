@@ -19,7 +19,7 @@ export default function Header() {
     // Listen for authentication state changes (login, logout, token refresh)
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, currentSession) => {
-        console.log('authListener', event, currentSession);
+        // console.log('authListener', event, currentSession);
         setSession(currentSession);
       }
     );

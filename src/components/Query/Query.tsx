@@ -9,15 +9,14 @@ import {
   QueryBody,
 } from '@/components';
 
-const views = {
-  History: <QueryHistory />,
-  Query: <QueryParameters />,
-  'Headers and Body': <QueryBody />,
-  Variables: <p>Component with Variables</p>,
-};
-type View = keyof typeof views;
-
 export default function Query() {
+  const views = {
+    History: <QueryHistory />,
+    Query: <QueryParameters />,
+    'Headers and Body': <QueryBody />,
+    Variables: <p>Component with Variables</p>,
+  };
+  type View = keyof typeof views;
   const [show, setShow] = useState<View>('History');
 
   return (

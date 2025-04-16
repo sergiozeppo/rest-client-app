@@ -5,7 +5,7 @@ import styles from './ResponseViewer.module.scss';
 import { useTheme } from '@/Store/Theme';
 import { useFetch } from '@/Store/useFetch';
 import { useLoader } from '@/Store/useLoader';
-import Loader from '../Loader/Loader';
+import { Loader } from '@/components';
 
 export default function ResponseViewer() {
   const [copied, setCopied] = useState(false);

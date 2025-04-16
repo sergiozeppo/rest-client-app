@@ -1,10 +1,17 @@
 'use client';
-import { Query, Response } from '@/components';
+import { Loader } from '@/components';
 import { useUrl, Params } from '@/Store/useUrlStore';
 import { useParams, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { lazy, ReactNode, Suspense, useEffect } from 'react';
 
-export default function Layout() {
+const Query = lazy(() => import('@/components/Query/Query'));
+const Response = lazy(() => import('@/components/Response/Response'));
+
+type Props = {
+  children: ReactNode;
+};
+
+export default function Layout({ children }: Props) {
   const params: Params = useParams();
   const searchParams = Object.fromEntries(useSearchParams().entries());
 
@@ -21,8 +28,11 @@ export default function Layout() {
 
   return (
     <>
-      <Query />
-      <Response />
+      <Suspense fallback={<Loader />}>
+        <Query />
+        <Response />
+      </Suspense>
+      {children}
     </>
   );
 }
