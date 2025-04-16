@@ -37,3 +37,18 @@
   word-break: break-word;
   white-space: pre-wrap;
 }
+
+.hdrs-row:first-of-type .hdrs-cell {
+  border-top: none;
+  font-weight: bold;
+  background-color: var(--color-hdrs-line-bg);
+}
+.hdrs-row:last-of-type .hdrs-cell {
+  border-bottom: none;
+}
+.hdrs-cell:first-child {
+  border-left: none;
+}
+.hdrs-cell:last-child {
+  border-right: none;
+}
