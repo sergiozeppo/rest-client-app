@@ -3,7 +3,7 @@
 import { useTheme } from '@/Store/Theme';
 import Image from 'next/image';
 import styles from './Logo.module.scss';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 export default function Logo() {
   const { theme } = useTheme();
