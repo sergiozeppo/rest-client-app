@@ -40,6 +40,7 @@ export async function updateSession(
 
   // Check if it's a public route (without the locale prefix)
   const isPublicRoute =
+    pathWithoutLocale === '' ||
     pathWithoutLocale === 'sign-in' ||
     pathWithoutLocale === 'sign-up' ||
     pathWithoutLocale.startsWith('auth/');
@@ -55,8 +56,14 @@ export async function updateSession(
     return NextResponse.redirect(url);
   }
 
-  // Redirect logged user from sign in/ sign up pages
+  // Redirect logged user from sign in/ sign up pages but keep locale without redirects
   if (user && isPublicRoute) {
+    const currentPath = request.nextUrl.pathname;
+
+    if (currentPath === `/${locale}`) {
+      return response;
+    }
+
     const url = new URL(`/${locale}`, request.url);
     return NextResponse.redirect(url);
   }
