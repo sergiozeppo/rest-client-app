@@ -16,6 +16,7 @@ export default function Response() {
   const [show, setShow] = useState<View>('Response');
   const status = useFetch((state) => state.status);
   const statusText = getStatusText(status);
+  const headersCount = useFetch((state) => state.headersCount);
   const time = useFetch((state) => state.time);
   const size = useFetch((state) => state.size);
   const coloringStatus = getColoringStatus({ status, time, size });
@@ -63,13 +64,16 @@ export default function Response() {
       </div>
       <div className={styles.body}>
         {Object.keys(views).map((key) => (
-          <button
-            className={show == key ? `${styles.active}` : ''}
+          <div
             key={key}
+            className={`${styles.tab} ${show === key ? styles.active : ''}`}
             onClick={() => setShow(key as View)}
           >
             {key}
-          </button>
+            {key === 'Headers' && headersCount > 0 && (
+              <span className={styles.count}>{headersCount}</span>
+            )}
+          </div>
         ))}
       </div>
       <div className={styles.content}>{views[show]}</div>
