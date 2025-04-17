@@ -11,35 +11,7 @@
   padding: 1rem;
 }
 
-.resp-copy-wrapper {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-}
-
-.resp-copy-btn {
-  background: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  text-align: center;
-  border: none;
-  color: var(--color-resp-copy-btn);
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-
-.resp-copy-btn:hover {
-  transform: scale(1.1);
-}
-
-.resp-copy-icon {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-.resp-line-numbers {
+.resp-line-number {
   background-color: var(--color-resp-line-bg);
   user-select: none;
   display: inline-block;
@@ -64,4 +36,3 @@
   white-space: pre-wrap;
   font-family: inherit;
 }
-

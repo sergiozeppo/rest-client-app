@@ -2,79 +2,34 @@
 import { useFetch } from '@/Store/useFetch';
 import styles from './Response.module.scss';
 import { useState } from 'react';
-import { ResponseViewer } from '@/components';
-import getColoringStatus from '@/utils/getColoringStatus/getColoringStatus';
-import { getStatusText } from '@/utils/getStatusText/getStatusText';
+import { ResponseViewer, HeadersViewer } from '@/components';
+import ResponseStatus from '../ResponseStatus/ResponseStatus';
 
-const Head = () => {
-  const response = useFetch((state) => state.headers);
-  return <pre className={styles.pre}>{JSON.stringify(response, null, 2)}</pre>;
-};
-
-const views = {
-  Response: <ResponseViewer />,
-  Headers: <Head />,
-};
-
-type View = keyof typeof views;
 export default function Response() {
+  const views = {
+    Response: <ResponseViewer />,
+    Headers: <HeadersViewer />,
+  };
+  type View = keyof typeof views;
+
   const [show, setShow] = useState<View>('Response');
-  const status = useFetch((state) => state.status);
-  const statusText = getStatusText(status);
-  const time = useFetch((state) => state.time);
-  const size = useFetch((state) => state.size);
-  const coloringStatus = getColoringStatus({ status, time, size });
+  const headersCount = useFetch((state) => state.headersCount);
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        {status > 0 ? (
-          <>
-            <p>
-              Status:{' '}
-              <span
-                style={{
-                  fontWeight: 'bold',
-                  color: coloringStatus.statusColor,
-                }}
-              >
-                {status} {` "${statusText}"`}
-              </span>
-            </p>
-            <p>
-              Size:{' '}
-              <span
-                style={{ fontWeight: 'bold', color: coloringStatus.sizeColor }}
-              >
-                {size} kb
-              </span>
-            </p>
-            <p>
-              Time:{' '}
-              <span
-                style={{ fontWeight: 'bold', color: coloringStatus.timeColor }}
-              >
-                {time} ms
-              </span>
-            </p>
-          </>
-        ) : (
-          <>
-            <p>Status: </p>
-            <p>Size: </p>
-            <p>Time: </p>
-          </>
-        )}
-      </div>
+      <ResponseStatus />
       <div className={styles.body}>
         {Object.keys(views).map((key) => (
-          <button
-            className={show == key ? `${styles.active}` : ''}
+          <div
             key={key}
+            className={`${styles.tab} ${show === key ? styles.active : ''}`}
             onClick={() => setShow(key as View)}
           >
             {key}
-          </button>
+            {key === 'Headers' && headersCount > 0 && (
+              <span className={styles.count}>{headersCount}</span>
+            )}
+          </div>
         ))}
       </div>
       <div className={styles.content}>{views[show]}</div>
