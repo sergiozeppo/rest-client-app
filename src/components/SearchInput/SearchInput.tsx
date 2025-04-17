@@ -31,7 +31,7 @@ export default function SearchInput() {
   const handleInput = () => {
     const inputUrl = normalizeUrl(inputValue);
     if (!inputUrl) {
-      return router.replace({
+      return router.push({
         pathname: `/${params.method || 'get'}`,
       });
     }
@@ -40,7 +40,7 @@ export default function SearchInput() {
       const { origin, pathname, search } = new URL(inputUrl);
       const base64 = encodeBase64(origin + pathname);
       setValueBase(origin + pathname);
-      router.replace({
+      router.push({
         pathname: `/${params.method || 'get'}/${base64}${search}`,
       });
     } catch {

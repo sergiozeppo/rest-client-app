@@ -1,14 +1,16 @@
-export async function POST(req: Request) {
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(req: NextRequest) {
   try {
     const { url, method, header, body } = await req.json();
 
     if (!url) {
-      return Response.json({ status: 400, error: 'URL is required' });
+      return NextResponse.json({ status: 400, error: 'URL is required' });
     }
 
     const isWithBody = ['POST', 'PUT'].includes(method);
     if (isWithBody && !body) {
-      return Response.json({ status: 400, error: 'Body is required' });
+      return NextResponse.json({ status: 400, error: 'Body is required' });
     }
 
     const options: RequestInit = {
@@ -38,13 +40,13 @@ export async function POST(req: Request) {
       headers[key] = value;
     });
 
-    return Response.json({
+    return NextResponse.json({
       status: res.status,
       statusText: res.statusText,
       headers,
       response,
     });
   } catch {
-    return Response.json({ status: 500, error: 'Request failed' });
+    return NextResponse.json({ status: 500, error: 'Request failed' });
   }
 }

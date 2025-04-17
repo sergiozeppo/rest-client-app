@@ -5,19 +5,15 @@
   padding: 1rem;
 }
 
-.title {
-  font-size: 1.2rem;
-  color: var(--color-text-btn);
-}
-
 .select {
   background-color: var(--color-bg-main);
   color: var(--color-text);
-  padding: 5px;
   font-size: 1.1rem;
   text-align: center;
   cursor: pointer;
   width: max-content;
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
 .resp-viewer {

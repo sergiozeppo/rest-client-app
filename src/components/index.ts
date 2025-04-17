@@ -13,3 +13,5 @@ export { default as QueryBody } from './QueryBody/QueryBody';
 export { default as ResponseViewer } from './ResponseViewer/ResponseViewer';
 export { default as HeadersViewer } from './HeadersViewer/HeadersViewer';
 export { default as Loader } from './Loader/Loader';
+export { default as CodeGenerator } from './CodeGenerator/CodeGenerator';
+export { default as Copy } from './Copy/Copy';

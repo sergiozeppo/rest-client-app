@@ -7,6 +7,7 @@ import {
   QueryParameters,
   QueryHistory,
   QueryBody,
+  CodeGenerator,
 } from '@/components';
 
 export default function Query() {
@@ -14,7 +15,7 @@ export default function Query() {
     History: <QueryHistory />,
     Query: <QueryParameters />,
     'Headers and Body': <QueryBody />,
-    Variables: <p>Component with Variables</p>,
+    'Code Generator': <CodeGenerator />,
   };
   type View = keyof typeof views;
   const [show, setShow] = useState<View>('History');
