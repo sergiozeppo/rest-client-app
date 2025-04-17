@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl';
 import { useRef, useState, FormEvent } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { useRouter } from '@/i18n/navigation';
-
 export default function SignInForm() {
   const t = useTranslations('Sign-in');
   const router = useRouter();

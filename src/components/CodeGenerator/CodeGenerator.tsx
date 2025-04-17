@@ -4,19 +4,7 @@ import styles from './CodeGenerator.module.scss';
 import { useUrl } from '@/Store/useUrlStore';
 import { useHeadersBody } from '@/Store/useHeadersBody';
 import { Copy } from '@/components';
-
-const languages = [
-  { label: 'JavaScript (Fetch)', client: 'javascript', variant: 'fetch' },
-  { label: 'JavaScript (Axios)', client: 'javascript', variant: 'axios' },
-  { label: 'JavaScript (XHR)', client: 'javascript', variant: 'xhr' },
-  { label: 'Node.js', client: 'node', variant: 'native' },
-  { label: 'Node.js (Fetch)', client: 'node', variant: 'fetch' },
-  { label: 'Python', client: 'python', variant: 'requests' },
-  { label: 'Java', client: 'java', variant: 'okhttp' },
-  { label: 'C#', client: 'csharp', variant: 'httpclient' },
-  { label: 'Go', client: 'go', variant: 'native' },
-  { label: 'cURL', client: 'shell', variant: 'curl' },
-];
+import { languages } from '@/lib/LanguagesGeneratorCode';
 
 export default function CodeGenerator() {
   const [lang, setLang] = useState(languages[0]);

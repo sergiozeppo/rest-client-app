@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './NotFound404.module.css';
+import styles from './NotFound404.module.scss';
 
 export default function NotFound404() {
   return (

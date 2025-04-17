@@ -9,15 +9,14 @@ export default function Logo() {
   const theme = useTheme((store) => store.theme);
   const locale = useLocale();
   return (
-    <div onClick={() => redirect({ locale, href: '/about' })}>
-      <Image
-        src={`/logos/NR_${theme}.PNG`}
-        alt="NeverREST Logo"
-        width="60"
-        height="60"
-        priority
-        className={styles.logo}
-      />
-    </div>
+    <Image
+      onClick={() => redirect({ locale, href: '/about' })}
+      src={`/logos/NR_${theme}.PNG`}
+      alt="NeverREST Logo"
+      width="60"
+      height="60"
+      priority
+      className={styles.logo}
+    />
   );
 }

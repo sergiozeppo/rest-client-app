@@ -15,3 +15,6 @@ export { default as HeadersViewer } from './HeadersViewer/HeadersViewer';
 export { default as Loader } from './Loader/Loader';
 export { default as CodeGenerator } from './CodeGenerator/CodeGenerator';
 export { default as Copy } from './Copy/Copy';
+export { default as MainButtons } from './MainButtons/MainButtons';
+export { default as Logo } from './Logo/Logo';
+export { default as GitHubLogo } from './GitHubLogo/GitHubLogo';
