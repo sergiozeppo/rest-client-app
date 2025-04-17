@@ -19,8 +19,8 @@ export const useSession = () => {
     getSession();
 
     const { data: authListener } = supabase.auth.onAuthStateChange(
-      (event, currentSession) => {
-        console.log('authListener', event, currentSession);
+      (_event, currentSession) => {
+        // console.log('authListener', _event, currentSession);
         setSession(currentSession);
       }
     );

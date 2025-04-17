@@ -1,23 +1,23 @@
 'use client';
-
 import { useTheme } from '@/Store/Theme';
 import Image from 'next/image';
 import styles from './Logo.module.scss';
-import { Link } from '@/i18n/navigation';
+import { redirect } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 
 export default function Logo() {
-  const { theme } = useTheme();
-
+  const theme = useTheme((store) => store.theme);
+  const locale = useLocale();
   return (
-    <Link href="/">
+    <div onClick={() => redirect({ locale, href: '/about' })}>
       <Image
-        src={theme === 'light' ? '/logos/NR_light.PNG' : '/logos/NR_dark.PNG'}
+        src={`/logos/NR_${theme}.PNG`}
         alt="NeverREST Logo"
         width="60"
         height="60"
         priority
         className={styles.logo}
       />
-    </Link>
+    </div>
   );
 }
