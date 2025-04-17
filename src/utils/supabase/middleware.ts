@@ -51,7 +51,7 @@ export async function updateSession(
 
   // Redirect user which is not logged in
   if (!user && !isPublicRoute) {
-    const url = new URL(`/${locale}/sign-in`, request.url);
+    const url = new URL(`/${locale}/about`, request.url);
     return NextResponse.redirect(url);
   }
 
@@ -61,6 +61,14 @@ export async function updateSession(
 
     if (currentPath === `/${locale}`) {
       return response;
+    }
+
+    if (
+      currentPath === `/${locale}/sign-in` ||
+      currentPath === `/${locale}/sign-up`
+    ) {
+      const url = new URL(`/${locale}/about`, request.url);
+      return NextResponse.redirect(url);
     }
 
     const url = new URL(`/${locale}`, request.url);
