@@ -15,7 +15,6 @@ export default function Logo() {
         alt="NeverREST Logo"
         width="60"
         height="60"
-        priority
         className={styles.logo}
       />
     </div>
