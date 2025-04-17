@@ -9,9 +9,9 @@ export default function Logo() {
   const { theme } = useTheme();
 
   return (
-    <Link href="/">
+    <Link href="about">
       <Image
-        src={theme === 'light' ? '/logos/NR_light.PNG' : '/logos/NR_dark.PNG'}
+        src={`/logos/NR_${theme}.PNG`}
         alt="NeverREST Logo"
         width="60"
         height="60"

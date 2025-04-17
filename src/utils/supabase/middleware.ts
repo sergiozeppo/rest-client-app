@@ -40,7 +40,7 @@ export async function updateSession(
 
   // Check if it's a public route (without the locale prefix)
   const isPublicRoute =
-    pathWithoutLocale === '' ||
+    pathWithoutLocale === 'about' ||
     pathWithoutLocale === 'sign-in' ||
     pathWithoutLocale === 'sign-up' ||
     pathWithoutLocale.startsWith('auth/');

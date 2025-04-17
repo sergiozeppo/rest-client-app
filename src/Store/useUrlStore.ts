@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 export type Params = {
-  locale?: string;
+  locale: string;
   method: string;
   url: string;
 };
@@ -53,7 +53,7 @@ export const useUrl = create<Url>()(
           locale: params.locale || 'en',
           params: params || {},
 
-          method: params?.method.toUpperCase() || 'get',
+          method: params?.method?.toUpperCase() || 'get',
           urlBase: `/${params?.method || state.method}/${params.url || ''}`,
           valueBase,
           value: valueBase + state.queryBase,
