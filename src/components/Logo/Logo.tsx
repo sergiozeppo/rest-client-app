@@ -1,5 +1,4 @@
 'use client';
-
 import { useTheme } from '@/Store/Theme';
 import Image from 'next/image';
 import styles from './Logo.module.scss';
@@ -9,7 +8,7 @@ export default function Logo() {
   const { theme } = useTheme();
 
   return (
-    <Link href="about">
+    <Link href={'about'} replace>
       <Image
         src={`/logos/NR_${theme}.PNG`}
         alt="NeverREST Logo"
