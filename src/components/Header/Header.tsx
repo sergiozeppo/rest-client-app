@@ -1,4 +1,5 @@
 'use client';
+
 import { useLocale, useTranslations } from 'next-intl';
 import { LocaleSwitcher, ThemeSwitcher } from '@/components';
 import styles from './Header.module.scss';
@@ -6,29 +7,12 @@ import { Link, redirect } from '@/i18n/navigation';
 import { useState, useEffect } from 'react';
 import Logo from '../Logo/Logo';
 import { signOut } from '@/utils/auth';
-import { Session } from '@supabase/supabase-js';
-import { createClient } from '@/utils/supabase/client';
+import { useSession } from '@/Store/useSession';
 
 export default function Header() {
-  const [session, setSession] = useState<Session | null>(null);
-  const supabase = createClient();
+  const session = useSession();
   const [isSticky, setIsSticky] = useState(false);
   const locale = useLocale();
-
-  useEffect(() => {
-    // Listen for authentication state changes (login, logout, token refresh)
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      (event, currentSession) => {
-        // console.log('authListener', event, currentSession);
-        setSession(currentSession);
-      }
-    );
-
-    // Cleanup function: Unsubscribe when the component unmounts
-    return () => {
-      authListener?.subscription.unsubscribe();
-    };
-  }, [supabase.auth]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +30,7 @@ export default function Header() {
     await signOut();
     redirect({
       locale: locale,
-      href: '/sign-in',
+      href: '/',
     });
   };
 

@@ -15,6 +15,7 @@ export default function EditableCodeEditor() {
       return false;
     }
   })(body);
+
   return (
     <>
       <div className={styles.container}>

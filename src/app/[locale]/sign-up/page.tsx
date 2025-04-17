@@ -31,7 +31,7 @@ async function signUpAction(data: FormData) {
   await supabase.auth.signOut();
   redirect({
     locale: locale,
-    href: '/sign-in',
+    href: `/${locale}`,
   });
 }
 

@@ -1,3 +1,4 @@
+import MainButtons from '@/components/MainButtons/MainButtons';
 import styles from './App.module.scss';
 
 export default function Page() {
@@ -9,6 +10,7 @@ export default function Page() {
           The modern way to test and manage your RESTful APIs! Never stop
           exploring, neverREST!
         </p>
+        <MainButtons />
       </header>
 
       <section className={styles.section}>
