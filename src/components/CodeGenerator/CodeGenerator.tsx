@@ -15,6 +15,7 @@ const languages = [
   { label: 'Java', client: 'java', variant: 'okhttp' },
   { label: 'C#', client: 'csharp', variant: 'httpclient' },
   { label: 'Go', client: 'go', variant: 'native' },
+  { label: 'cURL', client: 'shell', variant: 'curl' },
 ];
 
 export default function CodeGenerator() {
