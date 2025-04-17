@@ -1,12 +1,10 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { LocaleSwitcher, ThemeSwitcher } from '@/components';
-import styles from './Header.module.scss';
 import { useState, useEffect } from 'react';
-import Logo from '../Logo/Logo';
+import { LocaleSwitcher, ThemeSwitcher, MainButtons, Logo } from '@/components';
+import styles from './Header.module.scss';
 import { useSession } from '@/Store/useSession';
-import MainButtons from '../MainButtons/MainButtons';
 
 export default function Header() {
   const session = useSession();

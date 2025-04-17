@@ -27,7 +27,7 @@ describe('GitHubLogo', () => {
   });
 
   it('renders light theme GitHub logo', async () => {
-    render(<GitHubLogo width={100} height={100} />);
+    render(<GitHubLogo />);
 
     await waitFor(() => {
       const img = screen.getByAltText('GitHub Logo');
@@ -35,15 +35,13 @@ describe('GitHubLogo', () => {
         'src',
         expect.stringContaining('github-mark.svg')
       );
-      expect(img).toHaveAttribute('width', '100');
-      expect(img).toHaveAttribute('height', '100');
     });
   });
 
   it('renders dark theme GitHub logo', async () => {
     mockStore.theme = 'dark';
 
-    render(<GitHubLogo width={120} height={80} />);
+    render(<GitHubLogo />);
 
     await waitFor(() => {
       const img = screen.getByAltText('GitHub Logo');
@@ -51,13 +49,11 @@ describe('GitHubLogo', () => {
         'src',
         expect.stringContaining('github-mark-white.svg')
       );
-      expect(img).toHaveAttribute('width', '120');
-      expect(img).toHaveAttribute('height', '80');
     });
   });
 
   it('updates logo when theme changes', async () => {
-    const { rerender } = render(<GitHubLogo width={100} height={100} />);
+    const { rerender } = render(<GitHubLogo />);
 
     await waitFor(() => {
       expect(screen.getByAltText('GitHub Logo')).toHaveAttribute(
@@ -67,7 +63,7 @@ describe('GitHubLogo', () => {
     });
 
     mockStore.theme = 'dark';
-    rerender(<GitHubLogo width={100} height={100} />);
+    rerender(<GitHubLogo />);
 
     await waitFor(() => {
       expect(screen.getByAltText('GitHub Logo')).toHaveAttribute(

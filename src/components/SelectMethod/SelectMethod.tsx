@@ -3,8 +3,7 @@ import { ChangeEvent, useTransition } from 'react';
 import styles from './SelectMethod.module.scss';
 import { useRouter } from '@/i18n/navigation';
 import { useUrl } from '@/Store/useUrlStore';
-
-const methods = ['GET', 'POST', 'PUT', 'DELETE'];
+import { METHODS } from '@/lib/constants';
 
 export default function SelectMethod() {
   const [isPending, startTransition] = useTransition();
@@ -28,7 +27,7 @@ export default function SelectMethod() {
       disabled={isPending}
       onChange={handleSelect}
     >
-      {methods.map((method) => (
+      {METHODS.map((method) => (
         <option key={method} value={method}>
           {method}
         </option>

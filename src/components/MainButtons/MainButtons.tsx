@@ -1,5 +1,4 @@
 'use client';
-
 import { useSession } from '@/Store/useSession';
 import styles from './MainButtons.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
