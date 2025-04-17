@@ -1,18 +1,16 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { LocaleSwitcher, ThemeSwitcher } from '@/components';
 import styles from './Header.module.scss';
-import { Link, redirect } from '@/i18n/navigation';
 import { useState, useEffect } from 'react';
 import Logo from '../Logo/Logo';
-import { signOut } from '@/utils/auth';
 import { useSession } from '@/Store/useSession';
+import MainButtons from '../MainButtons/MainButtons';
 
 export default function Header() {
   const session = useSession();
   const [isSticky, setIsSticky] = useState(false);
-  const locale = useLocale();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,14 +23,6 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isSticky]);
-
-  const handleLogout = async () => {
-    await signOut();
-    redirect({
-      locale: locale,
-      href: '/',
-    });
-  };
 
   const t = useTranslations('Header');
   return (
@@ -57,27 +47,7 @@ export default function Header() {
           <LocaleSwitcher />
           <ThemeSwitcher />
         </div>
-        <div className={styles.buttons_auth}>
-          {session ? (
-            <>
-              <Link href="/get" className={styles.btn}>
-                {t('rest-client')}
-              </Link>
-              <button onClick={handleLogout} className={styles.btn}>
-                {t('logout')}
-              </button>
-            </>
-          ) : (
-            <>
-              <Link href="/sign-in" className={styles.btn}>
-                {t('sign_in')}
-              </Link>
-              <Link href="/sign-up" className={styles.btn}>
-                {t('sign_up')}
-              </Link>
-            </>
-          )}
-        </div>
+        <MainButtons />
       </div>
     </div>
   );

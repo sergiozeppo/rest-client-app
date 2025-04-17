@@ -40,19 +40,18 @@ export async function updateSession(
 
   // Check if it's a public route (without the locale prefix)
   const isPublicRoute =
-    pathWithoutLocale === '' ||
     pathWithoutLocale === 'sign-in' ||
     pathWithoutLocale === 'sign-up' ||
     pathWithoutLocale.startsWith('auth/');
 
   // Skip middleware for auth callback route
-  if (pathWithoutLocale.startsWith('auth/callback')) {
+  if (pathWithoutLocale === 'about') {
     return response;
   }
 
   // Redirect user which is not logged in
   if (!user && !isPublicRoute) {
-    const url = new URL(`/${locale}/sign-in`, request.url);
+    const url = new URL(`/${locale}/about`, request.url);
     return NextResponse.redirect(url);
   }
 
@@ -62,6 +61,14 @@ export async function updateSession(
 
     if (currentPath === `/${locale}`) {
       return response;
+    }
+
+    if (
+      currentPath === `/${locale}/sign-in` ||
+      currentPath === `/${locale}/sign-up`
+    ) {
+      const url = new URL(`/${locale}/about`, request.url);
+      return NextResponse.redirect(url);
     }
 
     const url = new URL(`/${locale}`, request.url);

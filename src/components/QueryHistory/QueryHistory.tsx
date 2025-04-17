@@ -18,7 +18,7 @@ export default function QueryHistory() {
       const base64 = encodeBase64(origin + pathname);
       setValueBase(origin + pathname);
       router.replace({
-        pathname: `/${method}/${base64}${search}`,
+        pathname: `/${method.toLowerCase()}/${base64}${search}`,
       });
     } catch {
       router.replace({
