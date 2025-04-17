@@ -39,7 +39,7 @@ export const useFetch = create<Response>()(
         const start = Date.now();
 
         try {
-          const res = await fetch('/api', {
+          const res = await fetch('/api/fetch', {
             method: 'POST',
             body: JSON.stringify({ url, method, header, body }),
           });

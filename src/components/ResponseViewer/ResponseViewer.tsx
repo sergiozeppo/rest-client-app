@@ -1,15 +1,10 @@
 'use client';
-
-import { useState } from 'react';
 import styles from './ResponseViewer.module.scss';
-import { useTheme } from '@/Store/Theme';
 import { useFetch } from '@/Store/useFetch';
 import { useLoader } from '@/Store/useLoader';
-import { Loader } from '@/components';
+import { Copy, Loader } from '@/components';
 
 export default function ResponseViewer() {
-  const [copied, setCopied] = useState(false);
-  const { theme } = useTheme();
   const response = useFetch((state) => state.response);
   const error = useFetch((state) => state.error);
   const loadingState = useLoader();
@@ -26,38 +21,10 @@ export default function ResponseViewer() {
   const json = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
   const lines = json.split('\n');
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(json);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
   return (
     <div className={styles['resp-viewer']}>
       {loadingState && <Loader />}
-      {json && (
-        <div className={styles['resp-copy-wrapper']}>
-          <button className={styles['resp-copy-btn']} onClick={handleCopy}>
-            {copied ? (
-              '✅'
-            ) : (
-              <img
-                className={styles['resp-copy-icon']}
-                src={
-                  theme === 'light'
-                    ? '/icons/copy_light.svg'
-                    : '/icons/copy_dark.svg'
-                }
-                alt="Copy"
-              />
-            )}
-          </button>
-        </div>
-      )}
+      {json && <Copy code={json} />}
       {!loadingState && (
         <pre className={styles['resp-code-block']}>
           {lines.map((line, i) => (

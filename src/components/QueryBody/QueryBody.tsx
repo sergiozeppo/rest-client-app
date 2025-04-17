@@ -15,12 +15,11 @@ export default function EditableCodeEditor() {
       return false;
     }
   })(body);
-  console.log(header);
   return (
     <>
       <div className={styles.container}>
         <div>
-          <p className={styles.title}>Headers</p>
+          <h3>Headers</h3>
           <label className={styles.select} htmlFor="Content-Type">
             Content-Type:{' '}
           </label>
@@ -37,7 +36,7 @@ export default function EditableCodeEditor() {
             ))}
           </select>
         </div>
-        <p className={styles.title}>Body</p>
+        <h3>Body</h3>
       </div>
       <div className={styles['resp-viewer']}>
         <div className={styles['resp-editor-wrapper']}>
