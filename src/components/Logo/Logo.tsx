@@ -2,13 +2,14 @@
 import { useTheme } from '@/Store/Theme';
 import Image from 'next/image';
 import styles from './Logo.module.scss';
-import { Link } from '@/i18n/navigation';
+import { redirect } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 
 export default function Logo() {
-  const { theme } = useTheme();
-
+  const theme = useTheme((store) => store.theme);
+  const locale = useLocale();
   return (
-    <Link href={'about'} replace>
+    <div onClick={() => redirect({ locale, href: '/about' })}>
       <Image
         src={`/logos/NR_${theme}.PNG`}
         alt="NeverREST Logo"
@@ -17,6 +18,6 @@ export default function Logo() {
         priority
         className={styles.logo}
       />
-    </Link>
+    </div>
   );
 }
