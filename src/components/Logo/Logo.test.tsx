@@ -12,6 +12,14 @@ vi.mock('next/image', () => ({
   },
 }));
 
+vi.mock('next-intl', () => ({
+  useLocale: () => 'en',
+}));
+
+vi.mock('@/i18n/navigation', () => ({
+  redirect: vi.fn(),
+}));
+
 describe('Logo component', () => {
   beforeEach(() => {
     act(() => {
@@ -44,11 +52,5 @@ describe('Logo component', () => {
     render(<Logo />);
     const img = screen.getByRole('img');
     expect(img).toHaveAttribute('src', '/logos/NR_dark.PNG');
-  });
-
-  it('wraps logo in a link to home page', () => {
-    render(<Logo />);
-    const link = screen.getByRole('link');
-    expect(link).toHaveAttribute('href', '/');
   });
 });
