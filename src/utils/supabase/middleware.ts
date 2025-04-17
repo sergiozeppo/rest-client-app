@@ -63,6 +63,14 @@ export async function updateSession(
       return response;
     }
 
+    if (
+      currentPath === `/${locale}/sign-in` ||
+      currentPath === `/${locale}/sign-up`
+    ) {
+      const url = new URL(`/${locale}/about`, request.url);
+      return NextResponse.redirect(url);
+    }
+
     const url = new URL(`/${locale}`, request.url);
     return NextResponse.redirect(url);
   }
