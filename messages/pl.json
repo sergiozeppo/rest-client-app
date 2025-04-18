@@ -5,6 +5,7 @@
   "Header": {
     "sign_in": "Zaloguj się",
     "sign_up": "Zarejestruj się",
+    "main": "Strona główna",
     "logout": "Wyloguj się",
     "history": "Historia",
     "variables": "Zmienne",
@@ -68,7 +69,7 @@
     "key": "Klucz",
     "value": "Wartość"
   },
-  "QueryHistory": {
+  "History": {
     "title": "Historia zapytań",
     "delete": "Usuń",
     "deleteAll": "Usuń wszystko",

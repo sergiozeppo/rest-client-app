@@ -5,6 +5,7 @@
   "Header": {
     "sign_in": "Sign In",
     "sign_up": "Sign up",
+    "main": "Main Page",
     "logout": "Logout",
     "history": "History",
     "variables": "Variables",
@@ -68,7 +69,7 @@
     "key": "Key",
     "value": "Value"
   },
-  "QueryHistory": {
+  "History": {
     "title": "Query History",
     "delete": "Delete",
     "deleteAll": "Delete All",
