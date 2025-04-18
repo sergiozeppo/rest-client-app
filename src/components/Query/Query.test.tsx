@@ -14,7 +14,6 @@ vi.mock('@/components', () => ({
 describe('Query component', () => {
   it('renders Query', () => {
     mockRouter(<Query />);
-    screen.debug();
     expect(screen.getByText('SearchInput')).toBeInTheDocument();
     expect(screen.getByText('SelectMethod')).toBeInTheDocument();
     expect(screen.getByText('Code Generator')).toBeInTheDocument();
