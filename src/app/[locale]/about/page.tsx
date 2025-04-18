@@ -1,4 +1,3 @@
-'use client';
 import { MainButtons } from '@/components';
 import styles from './About.module.scss';
 import { getTranslations } from 'next-intl/server';
