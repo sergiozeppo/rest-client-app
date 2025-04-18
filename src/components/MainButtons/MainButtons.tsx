@@ -1,5 +1,5 @@
 'use client';
-import { useSession } from '@/Store/useSession';
+import { useSession } from '@/hooks/useSession';
 import styles from './MainButtons.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
 import { signOut } from '@/utils/auth';
