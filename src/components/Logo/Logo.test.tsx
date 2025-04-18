@@ -6,8 +6,17 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, ImgHTMLAttributes } from 'react';
 
 vi.mock('next/image', () => ({
+  __esModule: true,
   default: (props: ImgHTMLAttributes<HTMLImageElement>) => {
-    const { alt, ...rest } = props;
+    const { alt, priority, ...rest } = props as unknown as {
+      alt: string;
+      priority: boolean;
+    };
+
+    if (priority) {
+      return <img alt={alt || ''} {...rest} />;
+    }
+
     return <img alt={alt || ''} {...rest} />;
   },
 }));
