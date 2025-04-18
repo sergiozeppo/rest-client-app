@@ -1,6 +1,5 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import SignUpForm from './SignUpForm';
-import { vi } from 'vitest';
 import { FormData } from '@/utils/validation';
 
 vi.mock('next-intl', () => ({

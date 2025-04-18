@@ -1,7 +1,5 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { vi } from 'vitest';
 import SignIn from './page';
 
 vi.mock('next-intl/server', () => ({
