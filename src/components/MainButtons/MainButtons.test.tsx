@@ -2,10 +2,10 @@ import { mockRouter } from '@/tests/mockRouter';
 
 import { screen } from '@testing-library/react';
 import MainButtons from './MainButtons';
-import { useSession } from '@/Store/useSession';
+import { useSession } from '@/hooks/useSession';
 import { ReactNode } from 'react';
 
-vi.mock('@/Store/useSession', () => ({
+vi.mock('@/hooks/useSession', () => ({
   useSession: vi.fn(),
 }));
 
