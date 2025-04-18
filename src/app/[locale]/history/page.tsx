@@ -1,13 +1,13 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import styles from './QueryHistory.module.scss';
+import styles from './History.module.scss';
 import { useHistory } from '@/Store/History';
 import { useUrl } from '@/Store/useUrlStore';
 import { useRouter } from '@/i18n/navigation';
 import { encodeBase64 } from '@/utils/base64';
 
-export default function QueryHistory() {
-  const t = useTranslations('QueryHistory');
+export default function History() {
+  const t = useTranslations('History');
   const { history, delHistory, delAllHistory } = useHistory();
   const router = useRouter();
   const { setValueBase } = useUrl();

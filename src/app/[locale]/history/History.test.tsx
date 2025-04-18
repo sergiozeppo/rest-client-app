@@ -1,6 +1,6 @@
 import { mockRouter } from '@/tests/mockRouter';
 import { screen } from '@testing-library/react';
-import QueryHistory from './QueryHistory';
+import History from './page';
 import { useHistory } from '@/Store/History';
 import { useUrl } from '@/Store/useUrlStore';
 
@@ -17,14 +17,14 @@ vi.mock('@/i18n/navigation', () => ({
 }));
 
 const mockSetValueBase = vi.fn();
-describe('QueryHistory component', () => {
+describe('History component', () => {
   it('should display empty message when history is empty', () => {
     vi.mocked(useUrl).mockReturnValue({ setValueBase: mockSetValueBase });
     vi.mocked(useHistory).mockReturnValue({
       history: [],
     });
 
-    mockRouter(<QueryHistory />);
+    mockRouter(<History />);
     expect(screen.getByText(/It's empty here/)).toBeInTheDocument();
   });
 
@@ -37,7 +37,7 @@ describe('QueryHistory component', () => {
     vi.mocked(useHistory).mockReturnValue({
       history: mockHistory,
     });
-    mockRouter(<QueryHistory />);
+    mockRouter(<History />);
 
     expect(screen.getByText('Query History')).toBeInTheDocument();
     expect(screen.getByText('GET')).toBeInTheDocument();
