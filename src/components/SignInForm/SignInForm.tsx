@@ -34,7 +34,7 @@ export default function SignInForm() {
         return;
       }
 
-      router.push('/');
+      router.push('/about');
     } catch (error) {
       console.error('Sign in error:', error);
       setAuthError('An unexpected error occurred');
