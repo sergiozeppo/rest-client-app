@@ -42,6 +42,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
           {...register('username')}
           className={`${s.input} ${errors.username ? s.inputError : ''}`}
           type="text"
+          id="username"
           placeholder={t('username')}
         />
         <div className={s.errorContainer}>
@@ -58,6 +59,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
           {...register('email')}
           className={`${s.input} ${errors.email ? s.inputError : ''}`}
           type="email"
+          id="email"
           placeholder={t('email')}
         />
         <div className={s.errorContainer}>
@@ -90,6 +92,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
           className={`${s.input} ${errors.passwordForm?.confirmPassword ? s.inputError : ''}`}
           id="confirmPassword"
           type="password"
+          data-testid="confirmPassword"
         />
         <div className={s.errorContainer}>
           {errors.passwordForm?.confirmPassword && (
