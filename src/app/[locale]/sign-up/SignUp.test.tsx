@@ -50,7 +50,6 @@ vi.mock('@/components/SignUpForm/SignUpForm', () => ({
   ),
 }));
 
-// Mock GithubSignInButton
 vi.mock('@/components/GithubSignInButton/GithubSignInButton', () => ({
   default: () => <button>Sign in with GitHub</button>,
 }));

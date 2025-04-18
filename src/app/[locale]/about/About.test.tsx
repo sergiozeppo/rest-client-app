@@ -5,7 +5,6 @@ vi.mock('next-intl/server', () => ({
   getTranslations: vi.fn().mockResolvedValue((key: string) => key),
 }));
 
-// Mock MainButtons component
 vi.mock('@/components/MainButtons/MainButtons', () => ({
   default: () => <div data-testid="main-buttons">Main Buttons</div>,
 }));
@@ -43,9 +42,8 @@ describe('About Page', () => {
     render(await Page());
 
     const icons = screen.getAllByRole('img');
-    expect(icons).toHaveLength(9); // 6 feature icons + 3 profile pics
+    expect(icons).toHaveLength(9);
 
-    // Check if all expected icons are present
     expect(icons.some((img) => img.getAttribute('alt') === 'zap')).toBe(true);
     expect(icons.some((img) => img.getAttribute('alt') === 'globe')).toBe(true);
     expect(icons.some((img) => img.getAttribute('alt') === 'lock')).toBe(true);
