@@ -5,20 +5,18 @@ import {
   SearchInput,
   SelectMethod,
   QueryParameters,
-  QueryHistory,
   QueryBody,
   CodeGenerator,
 } from '@/components';
 
 export default function Query() {
   const views = {
-    History: <QueryHistory />,
     Query: <QueryParameters />,
     'Headers and Body': <QueryBody />,
     'Code Generator': <CodeGenerator />,
   };
   type View = keyof typeof views;
-  const [show, setShow] = useState<View>('History');
+  const [show, setShow] = useState<View>('Query');
 
   return (
     <div className={styles.container}>

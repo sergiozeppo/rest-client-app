@@ -11,7 +11,7 @@ const expectedComponents: Record<string, unknown> = {
   SearchInput: Components.SearchInput,
   NotFound404: Components.NotFound404,
   QueryParameters: Components.QueryParameters,
-  QueryHistory: Components.QueryHistory,
+  History: Components.History,
   QueryBody: Components.QueryBody,
   ResponseViewer: Components.ResponseViewer,
   HeadersViewer: Components.HeadersViewer,

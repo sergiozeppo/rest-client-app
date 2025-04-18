@@ -1,8 +1,9 @@
 import { mockRouter } from '@/tests/mockRouter';
 import { screen } from '@testing-library/react';
-import QueryHistory from './QueryHistory';
+import History from './page';
 import { useHistory } from '@/Store/History';
 import { useUrl } from '@/Store/useUrlStore';
+import { ReactNode } from 'react';
 
 vi.mock('@/Store/History', () => ({
   useHistory: vi.fn(),
@@ -14,18 +15,37 @@ vi.mock('@/Store/useUrlStore', () => ({
 
 vi.mock('@/i18n/navigation', () => ({
   useRouter: vi.fn(),
+  Link: ({
+    href,
+    children,
+    className,
+  }: {
+    href: string;
+    children: ReactNode;
+    className?: string;
+  }) => (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  ),
 }));
 
 const mockSetValueBase = vi.fn();
-describe('QueryHistory component', () => {
+const mockDelAllHistory = vi.fn();
+const mockDelHistory = vi.fn();
+
+describe('History component', () => {
   it('should display empty message when history is empty', () => {
     vi.mocked(useUrl).mockReturnValue({ setValueBase: mockSetValueBase });
     vi.mocked(useHistory).mockReturnValue({
       history: [],
+      delAllHistory: mockDelAllHistory,
+      delHistory: mockDelHistory,
     });
 
-    mockRouter(<QueryHistory />);
+    mockRouter(<History />);
     expect(screen.getByText(/It's empty here/)).toBeInTheDocument();
+    expect(screen.getByText('Rest Client')).toBeInTheDocument();
   });
 
   it('should render history items when history is available', () => {
@@ -36,8 +56,11 @@ describe('QueryHistory component', () => {
     vi.mocked(useUrl).mockReturnValue({ setValueBase: mockSetValueBase });
     vi.mocked(useHistory).mockReturnValue({
       history: mockHistory,
+      delAllHistory: mockDelAllHistory,
+      delHistory: mockDelHistory,
     });
-    mockRouter(<QueryHistory />);
+
+    mockRouter(<History />);
 
     expect(screen.getByText('Query History')).toBeInTheDocument();
     expect(screen.getByText('GET')).toBeInTheDocument();

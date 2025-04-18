@@ -5,7 +5,10 @@
   "Header": {
     "sign_in": "Sign In",
     "sign_up": "Sign up",
+    "main": "Main Page",
     "logout": "Logout",
+    "history": "History",
+    "variables": "Variables",
     "welcome": "Welcome, {username}",
     "rest-client": "Rest Client"
   },
@@ -66,10 +69,11 @@
     "key": "Key",
     "value": "Value"
   },
-  "QueryHistory": {
+  "History": {
     "title": "Query History",
     "delete": "Delete",
     "deleteAll": "Delete All",
-    "empty": "You haven't executed any requests. It's empty here."
+    "empty": "You haven't executed any requests. It's empty here. You can try our",
+    "rest-client": "Rest Client"
   }
 }

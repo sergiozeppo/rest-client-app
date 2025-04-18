@@ -7,6 +7,7 @@ export const FormValidation = z.object({
     .object({
       password: z
         .string()
+        .trim()
         .min(8, { message: 'Password must be at least 8 characters long' })
         .refine(
           (value) => /[a-z]/.test(value),

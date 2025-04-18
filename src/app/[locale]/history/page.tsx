@@ -1,13 +1,13 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import styles from './QueryHistory.module.scss';
+import styles from './History.module.scss';
 import { useHistory } from '@/Store/History';
 import { useUrl } from '@/Store/useUrlStore';
-import { useRouter } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { encodeBase64 } from '@/utils/base64';
 
-export default function QueryHistory() {
-  const t = useTranslations('QueryHistory');
+export default function History() {
+  const t = useTranslations('History');
   const { history, delHistory, delAllHistory } = useHistory();
   const router = useRouter();
   const { setValueBase } = useUrl();
@@ -30,9 +30,14 @@ export default function QueryHistory() {
   return (
     <div className={styles.container}>
       {history.length === 0 ? (
-        <div className={styles.empty}>
-          <p>{t('empty')}</p>
-        </div>
+        <>
+          <div className={styles.empty}>
+            <p>{t('empty')}</p>
+          </div>
+          <Link href="/get" className={styles.btn}>
+            {t('rest-client')}
+          </Link>
+        </>
       ) : (
         <div className={styles.header}>
           <h3>{t('title')}</h3>

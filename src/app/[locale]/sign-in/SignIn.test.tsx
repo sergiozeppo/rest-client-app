@@ -21,7 +21,6 @@ vi.mock('@/utils/supabase/client', () => ({
   }),
 }));
 
-// Mock SignInForm component
 vi.mock('@/components/SignInForm/SignInForm', () => ({
   default: () => (
     <div data-testid="signin-form">
@@ -39,7 +38,6 @@ vi.mock('@/components/SignInForm/SignInForm', () => ({
   ),
 }));
 
-// Mock GithubSignInButton
 vi.mock('@/components/GithubSignInButton/GithubSignInButton', () => ({
   default: () => <button>Sign in with GitHub</button>,
 }));

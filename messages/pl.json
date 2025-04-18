@@ -5,7 +5,10 @@
   "Header": {
     "sign_in": "Zaloguj się",
     "sign_up": "Zarejestruj się",
+    "main": "Strona główna",
     "logout": "Wyloguj się",
+    "history": "Historia",
+    "variables": "Zmienne",
     "welcome": "Witaj, {username}",
     "rest-client": "Klient REST"
   },
@@ -15,7 +18,7 @@
   "ButtonGO": {
     "go": "START"
   },
-"About": {
+  "About": {
     "subtitle": "Nowoczesny sposób testowania i zarządzania Twoimi interfejsami RESTful API! Nigdy nie przestawaj odkrywać, neverREST!",
     "why": "Dlaczego NeverREST?",
     "feature-fast": "Szybki i Intuicyjny",
@@ -66,10 +69,11 @@
     "key": "Klucz",
     "value": "Wartość"
   },
-  "QueryHistory": {
+  "History": {
     "title": "Historia zapytań",
     "delete": "Usuń",
     "deleteAll": "Usuń wszystko",
-    "empty": "Nie wykonałeś żadnych żądań. Tutaj jest pusto."
+    "empty": "Nie wykonałeś żadnych żądań. Tutaj jest pusto. Możesz wypróbować nasze",
+    "rest-client": "Klient REST"
   }
 }
