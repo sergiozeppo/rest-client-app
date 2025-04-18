@@ -2,7 +2,7 @@
 import styles from './QueryBody.module.scss';
 import { HeaderType, useHeadersBody } from '@/Store/useHeadersBody';
 
-export default function EditableCodeEditor() {
+export default function QueryBody() {
   const headers = ['application/json', 'text/plain'];
   const { header, setHeaders, body, setBody } = useHeadersBody();
 
@@ -44,6 +44,7 @@ export default function EditableCodeEditor() {
           <div className={styles['resp-line-numbers']}>
             {header === 'application/json' && (
               <p
+                data-testid="json-status"
                 className={`${styles.status}  ${validJson ? styles.valid : styles.invalid}`}
               >
                 {validJson ? 'Valid' : 'inValid'} JSON

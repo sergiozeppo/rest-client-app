@@ -4,7 +4,7 @@ import { useUrl } from './useUrlStore';
 import { useHistory } from './History';
 import { useHeadersBody } from './useHeadersBody';
 
-type Response = {
+export type Response = {
   response: object;
   headers: object;
   status: number;
