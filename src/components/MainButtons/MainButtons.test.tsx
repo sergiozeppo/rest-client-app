@@ -1,8 +1,9 @@
 import { mockRouter } from '@/tests/mockRouter';
-
-import { screen } from '@testing-library/react';
-import MainButtons from './MainButtons';
+import { screen, fireEvent } from '@testing-library/react';
+import MainButtons, { OriginType } from './MainButtons';
 import { useSession } from '@/hooks/useSession';
+import { signOut } from '@/utils/auth';
+import { redirect } from '@/i18n/navigation';
 import { ReactNode } from 'react';
 
 vi.mock('@/hooks/useSession', () => ({
@@ -23,7 +24,7 @@ vi.mock('@/i18n/navigation', () => ({
     children: ReactNode;
     className?: string;
   }) => (
-    <a href={href} className={className}>
+    <a href={href} className={className} data-testid={`link-${href}`}>
       {children}
     </a>
   ),
@@ -31,22 +32,60 @@ vi.mock('@/i18n/navigation', () => ({
 }));
 
 describe('MainButtons component', () => {
-  it('renders sign-in and sign-up buttons when not authenticated', () => {
+  beforeEach(() => {
+    vi.resetAllMocks();
+  });
+
+  const renderWithOrigin = (origin: OriginType) => {
+    mockRouter(<MainButtons origin={origin} />);
+  };
+
+  it('renders sign-in and sign-up when not authenticated', () => {
     vi.mocked(useSession).mockReturnValue(null);
 
-    mockRouter(<MainButtons />);
+    renderWithOrigin('main');
+
     expect(screen.getByText('Sign In')).toBeInTheDocument();
     expect(screen.getByText('Sign up')).toBeInTheDocument();
   });
 
-  it('renders rest-client and logout buttons when authenticated', () => {
+  it('renders rest-client, history, and variables when authenticated and origin is main', () => {
     vi.mocked(useSession).mockReturnValue({
       user: { name: 'Test' },
     } as unknown as ReturnType<typeof useSession>);
 
-    mockRouter(<MainButtons />);
+    renderWithOrigin('main');
 
     expect(screen.getByText('Rest Client')).toBeInTheDocument();
+    expect(screen.getByText('History')).toBeInTheDocument();
+    expect(screen.getByText('Variables')).toBeInTheDocument();
+  });
+
+  it('renders main and logout buttons when authenticated and origin is header', () => {
+    vi.mocked(useSession).mockReturnValue({
+      user: { name: 'Test' },
+    } as unknown as ReturnType<typeof useSession>);
+
+    renderWithOrigin('header');
+
+    expect(screen.getByText('Main Page')).toBeInTheDocument();
     expect(screen.getByText('Logout')).toBeInTheDocument();
+  });
+
+  it('calls signOut and redirect on logout click', async () => {
+    vi.mocked(useSession).mockReturnValue({
+      user: { name: 'Test' },
+    } as unknown as ReturnType<typeof useSession>);
+
+    renderWithOrigin('header');
+
+    const logoutButton = screen.getByText('Logout');
+    await fireEvent.click(logoutButton);
+
+    expect(signOut).toHaveBeenCalled();
+    expect(redirect).toHaveBeenCalledWith({
+      locale: expect.any(String),
+      href: '/',
+    });
   });
 });
