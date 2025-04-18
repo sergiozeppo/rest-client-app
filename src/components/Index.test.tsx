@@ -21,6 +21,7 @@ const expectedComponents: Record<string, unknown> = {
   MainButtons: Components.MainButtons,
   Logo: Components.Logo,
   GitHubLogo: Components.GitHubLogo,
+  ResponseStatus: Components.ResponseStatus,
 };
 
 describe('Component Exports', () => {

@@ -18,3 +18,4 @@ export { default as Copy } from './Copy/Copy';
 export { default as MainButtons } from './MainButtons/MainButtons';
 export { default as Logo } from './Logo/Logo';
 export { default as GitHubLogo } from './GitHubLogo/GitHubLogo';
+export { default as ResponseStatus } from './ResponseStatus/ResponseStatus';

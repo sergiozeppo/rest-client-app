@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FormValidation, FormData } from '@/utils/validation';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import PasswordStrengthBar from '../PasswordStrengthBar/PasswordStrengthBar';
 
 type SignUpFormProps = {
   // eslint-disable-next-line no-unused-vars
@@ -18,6 +19,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    watch,
   } = useForm<FormData>({
     resolver: zodResolver(FormValidation),
     mode: 'onChange',
@@ -76,6 +78,7 @@ export default function SignUpForm({ onSubmit }: SignUpFormProps) {
           id="password"
           type="password"
         />
+        <PasswordStrengthBar password={watch('passwordForm.password')} />
         <div className={s.errorContainer}>
           {errors.passwordForm?.password && (
             <p className={s.error}>{errors.passwordForm?.password.message}</p>
