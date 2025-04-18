@@ -12,7 +12,7 @@
   --color-border: #b5becc;
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-text-sticky: #fff;
-  --color-error: rgb(201, 0, 0);
+  --color-error: #dc2626;
   --primary-member-text: #4f46e5;
   --accent-btn: #0ea5e9;
   --card-bg: #ffffff;
@@ -46,7 +46,7 @@
   --color-border: #374151;
   --color-shadow: rgba(0, 0, 0, 0.2);
   --color-text-sticky: #fff;
-  --color-error: rgb(165, 0, 0);
+  --color-error: #f87171;
   --primary-member-text: #4f46e5;
   --accent-btn: #0ea5e9;
   --card-bg: #ffffff;
