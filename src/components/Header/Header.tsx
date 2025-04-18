@@ -45,7 +45,7 @@ export default function Header() {
           <LocaleSwitcher />
           <ThemeSwitcher />
         </div>
-        <MainButtons />
+        <MainButtons origin="header" />
       </div>
     </div>
   );

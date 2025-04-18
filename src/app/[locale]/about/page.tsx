@@ -9,7 +9,7 @@ export default async function Page() {
       <header className={styles.welcome}>
         <h1>NeverREST</h1>
         <p>{t('subtitle')}</p>
-        <MainButtons />
+        <MainButtons origin="main" />
       </header>
 
       <section className={styles.section}>
