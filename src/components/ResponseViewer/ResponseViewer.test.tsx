@@ -1,14 +1,14 @@
 import { screen } from '@testing-library/react';
 import ResponseViewer from './ResponseViewer';
 import { useFetch } from '@/Store/useFetch';
-import { useLoader } from '@/Store/useLoader';
+import { useLoader } from '@/hooks/useLoader';
 import { mockRouter } from '@/tests/mockRouter';
 
 vi.mock('@/Store/useFetch', () => ({
   useFetch: vi.fn(),
 }));
 
-vi.mock('@/Store/useLoader', () => ({
+vi.mock('@/hooks/useLoader', () => ({
   useLoader: vi.fn(),
 }));
 
