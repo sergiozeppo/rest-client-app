@@ -6,6 +6,8 @@
     "sign_in": "Zaloguj się",
     "sign_up": "Zarejestruj się",
     "logout": "Wyloguj się",
+    "history": "Historia",
+    "variables": "Zmienne",
     "welcome": "Witaj, {username}",
     "rest-client": "Klient REST"
   },
@@ -15,7 +17,7 @@
   "ButtonGO": {
     "go": "START"
   },
-"About": {
+  "About": {
     "subtitle": "Nowoczesny sposób testowania i zarządzania Twoimi interfejsami RESTful API! Nigdy nie przestawaj odkrywać, neverREST!",
     "why": "Dlaczego NeverREST?",
     "feature-fast": "Szybki i Intuicyjny",
