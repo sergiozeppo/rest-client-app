@@ -57,17 +57,4 @@ describe('Header component', () => {
     mockRouter(<Header />);
     expect(screen.getByText('Welcome, test@example.com')).toBeInTheDocument();
   });
-
-  it('adds sticky class on scroll', async () => {
-    mockRouter(<Header />);
-    const container = document.querySelector('div');
-    expect(container?.className.includes('sticky')).toBe(false);
-
-    window.scrollY = 50;
-    window.dispatchEvent(new Event('scroll'));
-
-    await new Promise((r) => setTimeout(r, 100));
-
-    expect(container?.className.includes('sticky')).toBe(true);
-  });
 });

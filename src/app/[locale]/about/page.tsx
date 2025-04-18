@@ -1,5 +1,5 @@
 'use client';
-import MainButtons from '@/components/MainButtons/MainButtons';
+import { MainButtons } from '@/components';
 import styles from './About.module.scss';
 
 export default function Page() {
