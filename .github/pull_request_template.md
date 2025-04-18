@@ -23,7 +23,7 @@ Please delete options that are not relevant.
 Did the tests passed? (if no, explain a reason)
 
 - [ ] Yes
-- [ ] No (We do not have tests yet)
+- [ ] No
 
 # Checklist:
 
