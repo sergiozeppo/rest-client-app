@@ -1,7 +1,7 @@
 'use client';
 import styles from './ResponseViewer.module.scss';
 import { useFetch } from '@/Store/useFetch';
-import { useLoader } from '@/Store/useLoader';
+import { useLoader } from '@/hooks/useLoader';
 import { Copy, Loader } from '@/components';
 
 export default function ResponseViewer() {

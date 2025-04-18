@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 import { LocaleSwitcher, ThemeSwitcher, MainButtons, Logo } from '@/components';
 import styles from './Header.module.scss';
-import { useSession } from '@/Store/useSession';
+import { useSession } from '@/hooks/useSession';
 
 export default function Header() {
   const session = useSession();
