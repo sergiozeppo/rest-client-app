@@ -91,7 +91,7 @@ describe('SignInForm Component', () => {
 
     await waitFor(() => {
       expect(mockRouterPush).toHaveBeenCalledTimes(1);
-      expect(mockRouterPush).toHaveBeenCalledWith('/');
+      expect(mockRouterPush).toHaveBeenCalledWith('/about');
     });
   });
 
