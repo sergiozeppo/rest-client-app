@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Footer from './Footer';
-import '@testing-library/jest-dom';
 
 vi.mock('next-intl/server', () => ({
   getTranslations: vi.fn().mockImplementation(() =>
