@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import styles from './History.module.scss';
 import { useHistory } from '@/Store/History';
 import { useUrl } from '@/Store/useUrlStore';
-import { useRouter } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { encodeBase64 } from '@/utils/base64';
 
 export default function History() {
@@ -30,9 +30,14 @@ export default function History() {
   return (
     <div className={styles.container}>
       {history.length === 0 ? (
-        <div className={styles.empty}>
-          <p>{t('empty')}</p>
-        </div>
+        <>
+          <div className={styles.empty}>
+            <p>{t('empty')}</p>
+          </div>
+          <Link href="/get" className={styles.btn}>
+            {t('rest-client')}
+          </Link>
+        </>
       ) : (
         <div className={styles.header}>
           <h3>{t('title')}</h3>

@@ -73,6 +73,7 @@
     "title": "Historia zapytań",
     "delete": "Usuń",
     "deleteAll": "Usuń wszystko",
-    "empty": "Nie wykonałeś żadnych żądań. Tutaj jest pusto."
+    "empty": "Nie wykonałeś żadnych żądań. Tutaj jest pusto. Możesz wypróbować nasze",
+    "rest-client": "Klient REST"
   }
 }
