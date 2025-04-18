@@ -6,7 +6,7 @@ vi.mock('@/components', () => ({
   SearchInput: () => <div>SearchInput</div>,
   SelectMethod: () => <div>SelectMethod</div>,
   QueryParameters: () => <div>QueryParameters</div>,
-  QueryHistory: () => <div>QueryHistory</div>,
+  History: () => <div>History</div>,
   QueryBody: () => <div>QueryBody</div>,
   CodeGenerator: () => <div>Code Generator</div>,
 }));
@@ -17,6 +17,6 @@ describe('Query component', () => {
     expect(screen.getByText('SearchInput')).toBeInTheDocument();
     expect(screen.getByText('SelectMethod')).toBeInTheDocument();
     expect(screen.getByText('Code Generator')).toBeInTheDocument();
-    expect(screen.getByText('QueryHistory')).toBeInTheDocument();
+    expect(screen.getByText('History')).toBeInTheDocument();
   });
 });
