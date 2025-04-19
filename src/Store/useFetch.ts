@@ -34,7 +34,7 @@ export const useFetch = create<Response>()(
 
       fetch: async (url) => {
         if (!url) {
-          toast.error('You must enter a URL', { duration: 1000 });
+          toast.error('You must enter a URL');
         }
         set({ isLoading: true });
         const method = useUrl.getState().method;

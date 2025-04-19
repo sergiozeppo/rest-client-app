@@ -27,7 +27,7 @@ export const useHistory = create<HistoryStore>()(
             ) {
               return state;
             }
-            toast.success('Added to history', { duration: 2000 });
+            toast.success('Added to history');
             return {
               history: [...state.history, { id: nanoid(), method, url }],
             };
