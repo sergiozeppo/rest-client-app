@@ -6,6 +6,7 @@ import styles from './App.module.scss';
 import { Header, Footer } from '@/components';
 import { Geist, Geist_Mono, Fira_Code } from 'next/font/google';
 import { ThemeSwitcher as ThemeProvider } from '@/components';
+import { Toaster } from 'sonner';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -40,6 +41,12 @@ export default async function LocaleLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${geistCode.variable}`}
       >
         <NextIntlClientProvider>
+          <Toaster
+            duration={2000}
+            expand={true}
+            position="top-center"
+            richColors
+          />
           <div className={styles.app}>
             <Header />
             {children}

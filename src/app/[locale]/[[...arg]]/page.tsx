@@ -19,7 +19,7 @@ export default function Page() {
   useEffect(() => {
     if (!METHODS.includes(method.toUpperCase())) {
       router.replace({
-        pathname: `/get/${url}`,
+        pathname: `/get/${url || ''}`,
         query: searchParams,
       });
     }

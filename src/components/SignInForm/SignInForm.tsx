@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useRef, useState, FormEvent } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { useRouter } from '@/i18n/navigation';
+import { toast } from 'sonner';
 export default function SignInForm() {
   const t = useTranslations('Sign-in');
   const router = useRouter();
@@ -31,12 +32,15 @@ export default function SignInForm() {
 
       if (error) {
         setAuthError(error.message);
+        toast.error(error.message);
         return;
       }
-
+      toast.success('Successfully');
       router.push('/about');
     } catch (error) {
-      console.error('Sign in error:', error);
+      if (error instanceof Error) {
+        toast.error(error.message);
+      }
       setAuthError('An unexpected error occurred');
     } finally {
       setIsSubmitting(false);

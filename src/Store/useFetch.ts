@@ -3,6 +3,7 @@ import { devtools } from 'zustand/middleware';
 import { useUrl } from './useUrlStore';
 import { useHistory } from './History';
 import { useHeadersBody } from './useHeadersBody';
+import { toast } from 'sonner';
 
 export type Response = {
   response: object;
@@ -32,6 +33,9 @@ export const useFetch = create<Response>()(
       isLoading: false,
 
       fetch: async (url) => {
+        if (!url) {
+          toast.error('You must enter a URL');
+        }
         set({ isLoading: true });
         const method = useUrl.getState().method;
         const { header, body } = useHeadersBody.getState();
@@ -50,7 +54,13 @@ export const useFetch = create<Response>()(
             ? Object.keys(data.headers).length
             : 0;
 
-          if (url && data.status < 500) setHistory(method, url);
+          if (url && data.status < 400) {
+            setHistory(method, url);
+            toast.success('Request was successful');
+          }
+          if (data.status >= 400) {
+            toast.error('Request failed');
+          }
 
           set({
             response: data.response,

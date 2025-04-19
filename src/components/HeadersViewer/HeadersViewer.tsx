@@ -1,5 +1,4 @@
 'use client';
-
 import styles from './HeadersViewer.module.scss';
 import { useFetch } from '@/Store/useFetch';
 
@@ -15,13 +14,18 @@ export default function HeadersViewer() {
       </div>
     );
   }
-
   let parsed: Record<string, string> = {};
-
-  const raw =
-    typeof data === 'string' ? data.replace(/\\/g, '') : JSON.stringify(data);
-  parsed = JSON.parse(raw);
-
+  try {
+    const raw =
+      typeof data === 'string' ? data.replace(/\\/g, '') : JSON.stringify(data);
+    parsed = JSON.parse(raw);
+  } catch {
+    return (
+      <div className={styles['hdrs-viewer']}>
+        No headers yet. Try to get some data!
+      </div>
+    );
+  }
   return (
     <div className={styles['hdrs-viewer']}>
       <div className={styles['hdrs-table']}>
