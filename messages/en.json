@@ -75,5 +75,20 @@
     "deleteAll": "Delete All",
     "empty": "You haven't executed any requests. It's empty here. You can try our",
     "rest-client": "Rest Client"
+  },
+  "Variables": {
+    "title": "Variables",
+    "add": "Add Variable",
+    "name": "Name",
+    "value": "Value",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "edit-var": "Edit Variable:",
+    "edit-add": "Add Variable",
+    "var-name": "Variable Name:",
+    "var-val": "Variable Value:",
+    "cancel": "Cancel",
+    "save": "Save"
   }
 }

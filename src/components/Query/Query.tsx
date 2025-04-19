@@ -7,6 +7,7 @@ import {
   QueryParameters,
   QueryBody,
   CodeGenerator,
+  VariablesTable,
 } from '@/components';
 
 export default function Query() {
@@ -14,6 +15,7 @@ export default function Query() {
     Query: <QueryParameters />,
     'Headers and Body': <QueryBody />,
     'Code Generator': <CodeGenerator />,
+    Variables: <VariablesTable />,
   };
   type View = keyof typeof views;
   const [show, setShow] = useState<View>('Query');

@@ -75,5 +75,20 @@
     "deleteAll": "Usuń wszystko",
     "empty": "Nie wykonałeś żadnych żądań. Tutaj jest pusto. Możesz wypróbować nasze",
     "rest-client": "Klient REST"
+  },
+  "Variables": {
+    "title": "Zmienne",
+    "add": "Dodaj zmienną",
+    "name": "Nazwa",
+    "value": "Wartość",
+    "actions": "Akcje",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "edit-var": "Edytuj zmienną:",
+    "edit-add": "Dodaj zmienną:",
+    "var-name": "Nazwa zmiennej:",
+    "var-val": "Wartość zmiennej:",
+    "cancel": "Anuluj",
+    "save": "Zapisz"
   }
 }

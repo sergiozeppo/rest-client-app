@@ -1,6 +1,8 @@
 'use client';
+import React from 'react';
 import styles from './QueryBody.module.scss';
 import { HeaderType, useHeadersBody } from '@/Store/useHeadersBody';
+import { replaceVariables } from '@/utils/variables/variableInsert';
 
 export default function QueryBody() {
   const headers = ['application/json', 'text/plain'];
@@ -15,6 +17,16 @@ export default function QueryBody() {
       return false;
     }
   })(body);
+
+  const handleBodyChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newBody = e.target.value;
+    setBody(newBody);
+  };
+
+  const handleBlur = () => {
+    const processedBody = replaceVariables(body);
+    setBody(processedBody);
+  };
 
   return (
     <>
@@ -59,7 +71,8 @@ export default function QueryBody() {
           <textarea
             className={styles['resp-textarea']}
             value={body}
-            onChange={(e) => setBody(e.target.value)}
+            onChange={handleBodyChange}
+            onBlur={handleBlur}
             spellCheck={false}
           />
         </div>

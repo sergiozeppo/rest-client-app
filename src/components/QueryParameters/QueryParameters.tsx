@@ -4,6 +4,7 @@ import { useUrl } from '@/Store/useUrlStore';
 import { useEffect } from 'react';
 import styles from './QueryParameters.module.scss';
 import { useTranslations } from 'next-intl';
+import { replaceVariables } from '@/utils/variables/variableInsert';
 
 export default function QueryParameters() {
   const t = useTranslations('QueryParameters');
@@ -21,7 +22,7 @@ export default function QueryParameters() {
   useEffect(() => {
     const queryObj = Object.fromEntries(
       QueryItems.filter(({ checked, key }) => checked && key).map(
-        ({ key, value }) => [key, value]
+        ({ key, value }) => [key, replaceVariables(value)]
       )
     );
     setQuery(queryObj, false);
@@ -32,6 +33,10 @@ export default function QueryParameters() {
       addItem();
     }
   }, [QueryItems, setQuery, addItem]);
+
+  const handleValueChange = (value: string, id: string) => {
+    setValue(value, id);
+  };
 
   return (
     <div className={styles.container}>
@@ -61,7 +66,7 @@ export default function QueryParameters() {
             type="text"
             placeholder={t('value')}
             value={value}
-            onChange={(e) => setValue(e.target.value, id)}
+            onChange={(e) => handleValueChange(e.target.value, id)}
           />
           <button className={styles.btn} onClick={() => delValue(id)}>
             {t('delete')}
