@@ -1,4 +1,6 @@
 'use client';
+import React from 'react';
+import { replaceVariables } from '@/utils/variables/variableInsert';
 import { ChangeEvent, useEffect, useState } from 'react';
 import styles from './QueryBody.module.scss';
 import { HeaderType, useHeadersBody } from '@/Store/useHeadersBody';
@@ -28,8 +30,10 @@ export default function QueryBody() {
       return false;
     }
   })(value);
+
   const handleBody = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const base = encodeBase64(e.target.value);
+    const processedBody = replaceVariables(e.target.value);
+    const base = encodeBase64(processedBody);
     router.replace({
       pathname: `/${params.method || 'get'}/${params.url || ''}/${base}`,
       query,

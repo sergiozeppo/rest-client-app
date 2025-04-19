@@ -8,6 +8,7 @@ vi.mock('@/components', () => ({
   QueryParameters: () => <div>QueryParameters</div>,
   QueryBody: () => <div>QueryBody</div>,
   CodeGenerator: () => <div>Code Generator</div>,
+  VariablesTable: () => <div>Variables</div>,
 }));
 
 describe('Query component', () => {
@@ -16,5 +17,6 @@ describe('Query component', () => {
     expect(screen.getByText('SearchInput')).toBeInTheDocument();
     expect(screen.getByText('SelectMethod')).toBeInTheDocument();
     expect(screen.getByText('Code Generator')).toBeInTheDocument();
+    expect(screen.getByText('Variables')).toBeInTheDocument();
   });
 });

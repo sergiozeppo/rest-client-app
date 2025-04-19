@@ -6,6 +6,7 @@ import { useRouter } from '@/i18n/navigation';
 import { useFetch } from '@/Store/useFetch';
 import { useTranslations } from 'next-intl';
 import { encodeBase64 } from '@/utils/base64';
+import { replaceVariables } from '@/utils/variables/variableInsert';
 import { useHeadersBody } from '@/Store/useHeadersBody';
 
 export default function SearchInput() {
@@ -30,8 +31,8 @@ export default function SearchInput() {
     return /^(http|https):\/\//.test(trimmed) ? trimmed : `https://${trimmed}`;
   };
 
-  const handleInput = () => {
-    const inputUrl = normalizeUrl(inputValue);
+  const handleInput = (url: string) => {
+    const inputUrl = normalizeUrl(url);
     if (!inputUrl) {
       return router.push({
         pathname: `/${params.method || 'get'}/_/${bodyBase64 || ''}`,
@@ -54,9 +55,10 @@ export default function SearchInput() {
   };
 
   const submit = () => {
-    handleInput();
+    const processedUrl = replaceVariables(inputValue);
+    handleInput(processedUrl);
     startTransition(() => {
-      fetch(inputValue);
+      fetch(processedUrl);
     });
   };
 
@@ -66,6 +68,11 @@ export default function SearchInput() {
     }
   };
 
+  const handleBlur = () => {
+    const processedUrl = replaceVariables(inputValue);
+    handleInput(processedUrl);
+  };
+
   return (
     <>
       <input
@@ -73,7 +80,7 @@ export default function SearchInput() {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         disabled={isPending}
-        onBlur={handleInput}
+        onBlur={handleBlur}
         onKeyDown={handleEnter}
         className={styles.input}
       />
