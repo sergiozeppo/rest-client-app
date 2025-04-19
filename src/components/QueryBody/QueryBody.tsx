@@ -1,12 +1,25 @@
 'use client';
+import { ChangeEvent, useEffect, useState } from 'react';
 import styles from './QueryBody.module.scss';
 import { HeaderType, useHeadersBody } from '@/Store/useHeadersBody';
+import { useRouter } from '@/i18n/navigation';
+import { encodeBase64 } from '@/utils/base64';
+import { useUrl } from '@/Store/useUrlStore';
 
 export default function QueryBody() {
+  const router = useRouter();
+  const { params, query } = useUrl();
   const headers = ['application/json', 'text/plain'];
-  const { header, setHeaders, body, setBody } = useHeadersBody();
-
-  const lineCount = body.split('\n').length;
+  const { header, setHeaders, body } = useHeadersBody();
+  const [value, setValue] = useState('');
+  useEffect(() => {
+    try {
+      setValue(JSON.stringify(JSON.parse(body), null, 2));
+    } catch {
+      setValue(body);
+    }
+  }, [body]);
+  const lineCount = value.split('\n').length;
   const validJson = ((str) => {
     try {
       JSON.parse(str);
@@ -14,12 +27,19 @@ export default function QueryBody() {
     } catch {
       return false;
     }
-  })(body);
+  })(value);
+  const handleBody = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const base = encodeBase64(e.target.value);
+    router.replace({
+      pathname: `/${params.method || 'get'}/${params.url || ''}/${base}`,
+      query,
+    });
+  };
 
   return (
     <>
       <div className={styles.container}>
-        <div>
+        <div className={styles.headers}>
           <h3>Headers</h3>
           <label className={styles.select} htmlFor="Content-Type">
             Content-Type:{' '}
@@ -42,7 +62,7 @@ export default function QueryBody() {
       <div className={styles['resp-viewer']}>
         <div className={styles['resp-editor-wrapper']}>
           <div className={styles['resp-line-numbers']}>
-            {header === 'application/json' && (
+            {header === 'application/json' && value.length > 0 && (
               <p
                 data-testid="json-status"
                 className={`${styles.status}  ${validJson ? styles.valid : styles.invalid}`}
@@ -58,8 +78,9 @@ export default function QueryBody() {
           </div>
           <textarea
             className={styles['resp-textarea']}
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onBlur={handleBody}
             spellCheck={false}
           />
         </div>

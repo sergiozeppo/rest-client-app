@@ -1,4 +1,5 @@
 export const languages = [
+  { label: 'cURL', client: 'shell', variant: 'curl' },
   { label: 'JavaScript (Fetch)', client: 'javascript', variant: 'fetch' },
   { label: 'JavaScript (Axios)', client: 'javascript', variant: 'axios' },
   { label: 'JavaScript (XHR)', client: 'javascript', variant: 'xhr' },
@@ -8,5 +9,4 @@ export const languages = [
   { label: 'Java', client: 'java', variant: 'okhttp' },
   { label: 'C#', client: 'csharp', variant: 'httpclient' },
   { label: 'Go', client: 'go', variant: 'native' },
-  { label: 'cURL', client: 'shell', variant: 'curl' },
 ];
