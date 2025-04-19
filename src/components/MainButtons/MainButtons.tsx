@@ -4,6 +4,7 @@ import styles from './MainButtons.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, redirect } from '@/i18n/navigation';
 import { signOut } from '@/utils/auth';
+import { toast } from 'sonner';
 
 export type OriginType = 'header' | 'main';
 
@@ -18,6 +19,7 @@ export default function MainButtons({ origin }: MainButtonsProps) {
 
   const handleLogout = async () => {
     await signOut();
+    toast.success('Bye!');
     redirect({
       locale: locale,
       href: '/',

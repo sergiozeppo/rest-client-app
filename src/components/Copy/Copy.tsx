@@ -2,6 +2,7 @@
 import { useTheme } from '@/Store/Theme';
 import styles from './Copy.module.scss';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function Copy({ code }: { code: string }) {
   const { theme } = useTheme();
@@ -11,9 +12,12 @@ export default function Copy({ code }: { code: string }) {
     try {
       await navigator.clipboard.writeText(code);
       setCopied(true);
+      toast.success('Copied to clipboard');
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      if (err instanceof Error) {
+        toast.error(err.message);
+      }
     }
   };
 

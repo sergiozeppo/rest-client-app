@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import { toast } from 'sonner';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { devtools } from 'zustand/middleware';
@@ -26,15 +27,21 @@ export const useHistory = create<HistoryStore>()(
             ) {
               return state;
             }
+            toast.success('Added to history', { duration: 2000 });
             return {
               history: [...state.history, { id: nanoid(), method, url }],
             };
           }),
-        delHistory: (id) =>
+        delHistory: (id) => {
+          toast.success('Deleted from history');
           set((state) => ({
             history: [...state.history.filter((item) => item.id !== id)],
-          })),
-        delAllHistory: () => set(() => ({ history: [] })),
+          }));
+        },
+        delAllHistory: () => {
+          toast.success('Deleted all history');
+          set(() => ({ history: [] }));
+        },
       }),
       { name: 'history' }
     ),
