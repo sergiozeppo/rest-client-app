@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from './VariablesTable.module.scss';
 import { useVariablesStore } from '@/Store/variablesStore';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 interface Variable {
   id: string;
@@ -48,9 +49,15 @@ export default function VariablesTable() {
 
   return (
     <div className={styles.container}>
-      <button className={styles.addButton} onClick={handleAdd}>
-        {t('add')}
-      </button>
+      <h2 className={styles.title}>{t('title')}</h2>
+      <div className={styles.btnContainer}>
+        <Link href="/get" className={styles.addButton}>
+          {t('rest')}
+        </Link>
+        <button className={styles.addButton} onClick={handleAdd}>
+          {t('add')}
+        </button>
+      </div>
 
       <table className={styles.table}>
         <thead>

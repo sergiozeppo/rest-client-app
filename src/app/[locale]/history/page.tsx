@@ -39,12 +39,19 @@ export default function History() {
           </Link>
         </>
       ) : (
-        <div className={styles.header}>
-          <h3>{t('title')}</h3>
-          <button className={styles.btn} onClick={delAllHistory}>
-            {t('deleteAll')}
-          </button>
-        </div>
+        <>
+          <Link href="/get" className={styles.btn}>
+            {t('rest-client')}
+          </Link>
+          <div className={styles.header}>
+            <h3>{t('title')}</h3>
+            <div>
+              <button className={styles.btn} onClick={delAllHistory}>
+                {t('deleteAll')}
+              </button>
+            </div>
+          </div>
+        </>
       )}
       {history.map(({ id, method, url }) => (
         <div className={styles.item} key={id}>

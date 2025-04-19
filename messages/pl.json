@@ -77,8 +77,9 @@
     "rest-client": "Klient REST"
   },
   "Variables": {
+    "rest": "Klient Rest",
     "title": "Zmienne",
-    "add": "Dodaj zmienną",
+    "add": "Dodaj zmienna",
     "name": "Nazwa",
     "value": "Wartość",
     "actions": "Akcje",
