@@ -4,7 +4,7 @@ import { devtools } from 'zustand/middleware';
 
 export type HeaderType = 'application/json' | 'text/plain';
 
-interface HeadersBodyStore {
+export interface HeadersBodyStore {
   header: HeaderType;
   body: string;
   bodyBase64: string;

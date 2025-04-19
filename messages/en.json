@@ -91,5 +91,23 @@
     "var-val": "Variable Value:",
     "cancel": "Cancel",
     "save": "Save"
+  },
+  "ResponseStatus": {
+    "Status": "Status",
+    "Size": "Size",
+    "Time": "Time"
+  },
+  "QueryBody": {
+    "Headers": "Headers",
+    "Content-Type": "Content-Type",
+    "Body": "Body"
+  },
+  "GeneratedCode": {
+    "GeneratedCode": "Generated Code",
+    "Language": "Language"
+  },
+  "Response": {
+    "Response": "Response",
+    "Headers": "Headers"
   }
 }
