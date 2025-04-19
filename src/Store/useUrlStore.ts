@@ -49,12 +49,13 @@ export const useUrl = create<Url>()(
       QueryItems: [],
       setParams: (params) => {
         const valueBase = decodeBase64(params);
+        const url = params?.url?.split('%')[0] || '';
+
         set((state) => ({
           locale: params.locale || 'en',
-          params: params || {},
-
+          params: { ...params, url },
           method: params?.method?.toUpperCase() || 'get',
-          urlBase: `/${params?.method || state.method}/${params.url || ''}`,
+          urlBase: `/${params?.method || state.method}/${url || ''}`,
           valueBase,
           value: valueBase + state.queryBase,
         }));

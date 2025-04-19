@@ -5,6 +5,13 @@
   padding: 1rem;
 }
 
+.headers {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .select {
   background-color: var(--color-bg-main);
   color: var(--color-text);

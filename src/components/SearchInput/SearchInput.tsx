@@ -6,8 +6,10 @@ import { useRouter } from '@/i18n/navigation';
 import { useFetch } from '@/Store/useFetch';
 import { useTranslations } from 'next-intl';
 import { encodeBase64 } from '@/utils/base64';
+import { useHeadersBody } from '@/Store/useHeadersBody';
 
 export default function SearchInput() {
+  const bodyBase64 = useHeadersBody((store) => store.bodyBase64);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const { params, value, setValueBase } = useUrl();
@@ -32,20 +34,21 @@ export default function SearchInput() {
     const inputUrl = normalizeUrl(inputValue);
     if (!inputUrl) {
       return router.push({
-        pathname: `/${params.method || 'get'}`,
+        pathname: `/${params.method || 'get'}/_/${bodyBase64 || ''}`,
       });
     }
 
     try {
-      const { origin, pathname, search } = new URL(inputUrl);
+      const { origin, pathname, searchParams } = new URL(inputUrl);
       const base64 = encodeBase64(origin + pathname);
       setValueBase(origin + pathname);
       router.push({
-        pathname: `/${params.method || 'get'}/${base64}${search}`,
+        pathname: `/${params.method || 'get'}/${base64}/${bodyBase64 || ''}`,
+        query: Object.fromEntries(searchParams.entries()),
       });
     } catch {
       router.replace({
-        pathname: `/${params.method || 'get'}`,
+        pathname: `/${params.method || 'get'}/_/${bodyBase64 || ''}`,
       });
     }
   };

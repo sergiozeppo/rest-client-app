@@ -79,7 +79,8 @@ describe('SearchInput Component', () => {
     fireEvent.click(button);
     await waitFor(() => {
       expect(mockRouter.push).toHaveBeenCalledWith({
-        pathname: '/get/aHR0cHMlM0ElMkYlMkZleGFtcGxlLmNvbSUyRg==',
+        pathname: '/get/aHR0cHMlM0ElMkYlMkZleGFtcGxlLmNvbSUyRg==/',
+        query: {},
       });
       expect(mockFetch).toHaveBeenCalledWith('https://example.com');
     });
@@ -91,7 +92,7 @@ describe('SearchInput Component', () => {
     fireEvent.click(button);
     await waitFor(() => {
       expect(mockRouter.push).toHaveBeenCalledWith({
-        pathname: '/get',
+        pathname: '/get/_/',
       });
     });
   });
@@ -103,7 +104,8 @@ describe('SearchInput Component', () => {
     fireEvent.keyDown(input, { code: 'Enter' });
     await waitFor(() => {
       expect(mockRouter.push).toHaveBeenCalledWith({
-        pathname: '/get/aHR0cHMlM0ElMkYlMkZleGFtcGxlLmNvbSUyRg==',
+        pathname: '/get/aHR0cHMlM0ElMkYlMkZleGFtcGxlLmNvbSUyRg==/',
+        query: {},
       });
       expect(mockFetch).toHaveBeenCalledWith('https://example.com');
     });
@@ -116,7 +118,8 @@ describe('SearchInput Component', () => {
     fireEvent.blur(input);
     await waitFor(() => {
       expect(mockRouter.push).toHaveBeenCalledWith({
-        pathname: '/get/aHR0cHMlM0ElMkYlMkZleGFtcGxlLmNvbSUyRg==',
+        pathname: '/get/aHR0cHMlM0ElMkYlMkZleGFtcGxlLmNvbSUyRg==/',
+        query: {},
       });
     });
   });
