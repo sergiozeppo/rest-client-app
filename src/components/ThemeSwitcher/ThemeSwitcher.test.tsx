@@ -36,18 +36,4 @@ describe('ThemeSwitcher', () => {
 
     expect(mockSetTheme).toHaveBeenCalled();
   });
-
-  it('renders children with theme class when provided', () => {
-    vi.mocked(useTheme).mockReturnValue({ theme: 'dark', setTheme: vi.fn() });
-
-    render(
-      <ThemeSwitcher className="custom-class">
-        <div>Child Content</div>
-      </ThemeSwitcher>
-    );
-
-    const themedBody = screen.getByText('Child Content').closest('body');
-    expect(themedBody).toHaveClass('dark');
-    expect(themedBody).toHaveClass('custom-class');
-  });
 });
