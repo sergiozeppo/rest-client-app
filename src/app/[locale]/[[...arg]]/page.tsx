@@ -18,7 +18,7 @@ export default function Page() {
   const searchParams = Object.fromEntries(useSearchParams().entries());
 
   useEffect(() => {
-    if (!METHODS.includes(method.toUpperCase())) {
+    if (!METHODS.includes(method?.toUpperCase())) {
       router.replace({
         pathname: `/get/${url || ''}`,
         query: searchParams,

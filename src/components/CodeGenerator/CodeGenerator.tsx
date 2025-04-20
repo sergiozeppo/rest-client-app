@@ -5,6 +5,7 @@ import { useUrl } from '@/Store/useUrlStore';
 import { useHeadersBody } from '@/Store/useHeadersBody';
 import { Copy } from '@/components';
 import { languages } from '@/lib/LanguagesGeneratorCode';
+import { useTranslations } from 'next-intl';
 
 export default function CodeGenerator() {
   const [lang, setLang] = useState(languages[0]);
@@ -57,12 +58,13 @@ export default function CodeGenerator() {
     const selected = languages.find((l) => l.label === e.target.value);
     if (selected) setLang(selected);
   }
+  const t = useTranslations('GeneratedCode');
 
   return (
     <div className={styles.container}>
       <div className={styles.lang}>
-        <h3>Generated Code</h3>
-        <label htmlFor="lang">Language:</label>
+        <h3>{t('GeneratedCode')}</h3>
+        <label htmlFor="lang">{t('Language')}:</label>
         <select id="lang" value={lang.label} onChange={onChange}>
           {languages.map((l) => (
             <option key={l.label} value={l.label}>

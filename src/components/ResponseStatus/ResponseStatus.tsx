@@ -2,6 +2,7 @@ import styles from './ResponseStatus.module.scss';
 import { useFetch } from '@/Store/useFetch';
 import getColoringStatus from '@/utils/getColoringStatus/getColoringStatus';
 import { getStatusText } from '@/utils/getStatusText/getStatusText';
+import { useTranslations } from 'next-intl';
 
 export default function ResponseStatus() {
   const status = useFetch((state) => state.status);
@@ -9,12 +10,13 @@ export default function ResponseStatus() {
   const time = useFetch((state) => state.time);
   const size = useFetch((state) => state.size);
   const coloringStatus = getColoringStatus({ status, time, size });
+  const t = useTranslations('ResponseStatus');
   return (
     <div className={styles.header}>
       {status > 0 ? (
         <>
           <p>
-            Status:{' '}
+            {t('Status')}:{' '}
             <span
               style={{
                 fontWeight: 'bold',
@@ -25,7 +27,7 @@ export default function ResponseStatus() {
             </span>
           </p>
           <p>
-            Size:{' '}
+            {t('Size')}:{' '}
             <span
               style={{ fontWeight: 'bold', color: coloringStatus.sizeColor }}
             >
@@ -33,7 +35,7 @@ export default function ResponseStatus() {
             </span>
           </p>
           <p>
-            Time:{' '}
+            {t('Time')}:{' '}
             <span
               style={{ fontWeight: 'bold', color: coloringStatus.timeColor }}
             >
@@ -43,9 +45,9 @@ export default function ResponseStatus() {
         </>
       ) : (
         <>
-          <p>Status: </p>
-          <p>Size: </p>
-          <p>Time: </p>
+          <p>{t('Status')}: </p>
+          <p>{t('Size')}: </p>
+          <p>{t('Time')}: </p>
         </>
       )}
     </div>

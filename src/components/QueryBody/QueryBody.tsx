@@ -7,6 +7,7 @@ import { HeaderType, useHeadersBody } from '@/Store/useHeadersBody';
 import { useRouter } from '@/i18n/navigation';
 import { encodeBase64 } from '@/utils/base64';
 import { useUrl } from '@/Store/useUrlStore';
+import { useTranslations } from 'next-intl';
 
 export default function QueryBody() {
   const router = useRouter();
@@ -35,18 +36,19 @@ export default function QueryBody() {
     const processedBody = replaceVariables(e.target.value);
     const base = encodeBase64(processedBody);
     router.replace({
-      pathname: `/${params.method || 'get'}/${params.url || ''}/${base}`,
+      pathname: `/${params.method || 'get'}/${params.url || '_'}/${base}`,
       query,
     });
   };
+  const t = useTranslations('QueryBody');
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.headers}>
-          <h3>Headers</h3>
+          <h3>{t('Headers')}</h3>
           <label className={styles.select} htmlFor="Content-Type">
-            Content-Type:{' '}
+            {t('Content-Type')}:{' '}
           </label>
           <select
             id="Content-Type"
@@ -61,7 +63,7 @@ export default function QueryBody() {
             ))}
           </select>
         </div>
-        <h3>Body</h3>
+        <h3>{t('Body')}</h3>
       </div>
       <div className={styles['resp-viewer']}>
         <div className={styles['resp-editor-wrapper']}>

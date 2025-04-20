@@ -1,8 +1,9 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
 import CodeGenerator from './CodeGenerator';
 import { useUrl } from '@/Store/useUrlStore';
-import { useHeadersBody } from '@/Store/useHeadersBody';
+import { HeadersBodyStore, useHeadersBody } from '@/Store/useHeadersBody';
 import { languages } from '@/lib/LanguagesGeneratorCode';
+import { mockRouter } from '@/tests/mockRouter';
 
 vi.mock('@/Store/useUrlStore', () => ({
   useUrl: vi.fn(),
@@ -52,7 +53,7 @@ describe('CodeGenerator', () => {
 
     vi.mocked(useUrl).mockImplementation((selector) => selector(mockUrlStore));
     vi.mocked(useHeadersBody).mockImplementation((selector) =>
-      selector(mockHeadersBodyStore)
+      selector(mockHeadersBodyStore as unknown as HeadersBodyStore)
     );
 
     mockFetch.mockResolvedValue({
@@ -62,7 +63,7 @@ describe('CodeGenerator', () => {
   });
 
   it('renders initial state correctly', () => {
-    render(<CodeGenerator />);
+    mockRouter(<CodeGenerator />);
 
     expect(
       screen.getByRole('heading', { name: 'Generated Code' })
@@ -73,7 +74,7 @@ describe('CodeGenerator', () => {
   });
 
   it('displays language options from languages constant', () => {
-    render(<CodeGenerator />);
+    mockRouter(<CodeGenerator />);
 
     languages.forEach((lang) => {
       expect(
@@ -83,7 +84,7 @@ describe('CodeGenerator', () => {
   });
 
   it('generates code when language is changed', async () => {
-    render(<CodeGenerator />);
+    mockRouter(<CodeGenerator />);
 
     const select = screen.getByRole('combobox');
     fireEvent.change(select, { target: { value: languages[1].label } });
@@ -103,7 +104,7 @@ describe('CodeGenerator', () => {
   it('displays error message when code generation fails', async () => {
     mockFetch.mockRejectedValue(new Error('Network error'));
 
-    render(<CodeGenerator />);
+    mockRouter(<CodeGenerator />);
 
     await waitFor(() => {
       expect(screen.getByText('Error generating code.')).toBeInTheDocument();
