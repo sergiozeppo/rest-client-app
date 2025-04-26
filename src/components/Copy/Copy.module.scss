@@ -1,0 +1,27 @@
+.wrapper {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+
+.btn {
+  background: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: none;
+  color: var(--color-resp-copy-btn);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}

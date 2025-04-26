@@ -1,0 +1,85 @@
+.light {
+  --color-fon: #ffffff;
+  --color-bg: #f1f8ff;
+  --color-bg-main: #f8fbff;
+  --color-text: #3d3e41;
+  --color-text-main: #3d3e41;
+  --color-text-welcome: #ffffff;
+  --color-text-btn: #000000;
+  --color-text-btn-active: #ff9900;
+  --color-text-link: #303337;
+  --color-text-hover: #60a5fa;
+  --color-border: #b5becc;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-text-sticky: #fff;
+  --color-error: #dc2626;
+  --primary-member-text: #4f46e5;
+  --accent-btn: #0ea5e9;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --color-resp-bg: #f9f9f9;
+  --color-resp-text: #222;
+  --color-resp-line-bg: #eaeaea;
+  --color-resp-brdr: #ccc;
+  --color-resp-copy-btn: #1e1e1e;
+  --color-status-green: #8bc34a;
+  --color-status-red: #f44336;
+  --color-status-yellow: #ff9800;
+  --color-hdrs-bg: #f9f9f9;
+  --color-hdrs-text: #222;
+  --color-hdrs-line-bg: #eaeaea;
+  --color-hdrs-brdr: #ccc;
+  --color-hdrs-copy-btn: #1e1e1e;
+}
+
+.dark {
+  --color-fon: #5d5d5d;
+  --color-bg: #1f2937;
+  --color-bg-main: #465262;
+  --color-text: #e4e8ee;
+  --color-text-main: #2d3748;
+  --color-text-welcome: #111827;
+  --color-text-btn: #ffc261;
+  --color-text-btn-active: #ff9900;
+  --color-text-link: #9ca3af;
+  --color-text-hover: #60a5fa;
+  --color-border: #374151;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-text-sticky: #fff;
+  --color-error: #f87171;
+  --primary-member-text: #4f46e5;
+  --accent-btn: #0ea5e9;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --color-resp-bg: #1e1e1e;
+  --color-resp-text: #e4e8ee;
+  --color-resp-line-bg: #2c2c2c;
+  --color-resp-brdr: #fff;
+  --color-resp-copy-btn: #f9f9f9;
+  --color-status-green: #aeea00;
+  --color-status-red: #ff5252;
+  --color-status-yellow: #ffeb3b;
+  --color-hdrs-bg: #1e1e1e;
+  --color-hdrs-text: #e4e8ee;
+  --color-hdrs-line-bg: #2c2c2c;
+  --color-hdrs-brdr: #fff;
+  --color-hdrs-copy-btn: #f9f9f9;
+}
+
+body {
+  background-color: var(--color-fon);
+  font-family: var(--font-geist-mono);
+  color: var(--color-text);
+  --color-input: #92bfeb15;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

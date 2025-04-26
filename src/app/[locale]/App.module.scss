@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 500px;
+  min-height: 100vh;
+
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background: var(--color-bg-main);
+}

@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  transition: padding 0.3s ease-in-out;
+
+  &.sticky {
+    padding: 0 1rem;
+    color: var(--color-text-sticky);
+    box-shadow: 0px 8px 8px 2px var(--color-shadow);
+  }
+}
+
+.nav_container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  .btn {
+    height: 50%;
+  }
+}
+
+.buttons_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 500px;
+}
+
+.buttons_switcher {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  div {
+    align-content: center;
+  }
+}
+
+.buttons_auth {
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin-right: 10px;
+}
+
+.btn {
+  cursor: pointer;
+  color: var(--color-text-btn);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  padding: 8px 16px;
+  box-shadow: 0px 8px 8px 2px var(--color-shadow);
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+
+  &:active {
+    box-shadow: none;
+  }
+}

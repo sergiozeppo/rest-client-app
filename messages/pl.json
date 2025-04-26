@@ -1,0 +1,113 @@
+{
+  "HomePage": {
+    "title": "Witaj!"
+  },
+  "Header": {
+    "sign_in": "Zaloguj się",
+    "sign_up": "Zarejestruj się",
+    "main": "Strona główna",
+    "logout": "Wyloguj się",
+    "history": "Historia",
+    "variables": "Zmienne",
+    "welcome": "Witaj, {username}",
+    "rest-client": "Klient REST"
+  },
+  "Footer": {
+    "Rights": "Wszelkie prawa zastrzeżone"
+  },
+  "ButtonGO": {
+    "go": "START"
+  },
+  "About": {
+    "subtitle": "Nowoczesny sposób testowania i zarządzania Twoimi interfejsami RESTful API! Nigdy nie przestawaj odkrywać, neverREST!",
+    "why": "Dlaczego NeverREST?",
+    "feature-fast": "Szybki i Intuicyjny",
+    "feature-fast-desc": "Wysyłaj żądania API natychmiastowo i otrzymuj odpowiedzi w czasie rzeczywistym z pięknym formatowaniem.",
+    "feature-global": "Internacjonalizacja",
+    "feature-global-desc": "Używaj aplikacji w preferowanym języku z pełnym wsparciem i18n.",
+    "feature-auth": "Uwierzytelnianie",
+    "feature-auth-desc": "Bezpieczny dostęp dzięki nowoczesnym wzorcom uwierzytelniania, takim jak OAuth, JWT i inne.",
+    "feature-history": "Śledzenie Historii",
+    "feature-history-desc": "Każde żądanie jest zapisywane — przeglądaj i uruchamiaj ponownie dowolne z nich, kiedy tylko zechcesz.",
+    "feature-headers": "Niestandardowe Nagłówki",
+    "feature-headers-desc": "Pełne wsparcie dla nagłówków, tokenów, ciasteczek i innych.",
+    "feature-rest": "REST i Więcej",
+    "feature-rest-desc": "Wsparcie dla REST i nie tylko od razu po instalacji.",
+    "team-title": "Poznaj Zespół",
+    "sergey": "Czarodziej TypeScript, entuzjasta UI/UX i Open Source.",
+    "kamil": "Maestro Supabase, guru walidacji i rejestracji.",
+    "viktor": "Innowator Fullstack, entuzjasta UI/UX i po prostu geniusz."
+  },
+  "Sign-up": {
+    "title": "Zacznij",
+    "subtitle": "Utwórz nowe konto",
+    "username": "Nazwa użytkownika",
+    "divider": "lub",
+    "email": "Email",
+    "password": "Hasło",
+    "confirm-password": "Potwierdź hasło",
+    "github": "Kontynuuj z GitHub",
+    "sign-up": "Zarejestruj się",
+    "account": "Masz już konto?",
+    "redirect": "Zaloguj się teraz"
+  },
+  "Sign-in": {
+    "title": "Witaj z powrotem",
+    "subtitle": "Zaloguj się do swojego konta",
+    "divider": "lub",
+    "email": "Email",
+    "password": "Hasło",
+    "github": "Kontynuuj z GitHub",
+    "submit": "Zaloguj się",
+    "account": "Nie masz jeszcze konta?",
+    "redirect": "Zarejestruj się teraz"
+  },
+  "QueryParameters": {
+    "title": "Parametry zapytania",
+    "delete": "Usuń",
+    "add": "Dodaj parametr zapytania",
+    "key": "Klucz",
+    "value": "Wartość"
+  },
+  "History": {
+    "title": "Historia zapytań",
+    "delete": "Usuń",
+    "deleteAll": "Usuń wszystko",
+    "empty": "Nie wykonałeś żadnych żądań. Tutaj jest pusto. Możesz wypróbować nasze",
+    "rest-client": "Klient REST"
+  },
+  "Variables": {
+    "rest": "Klient Rest",
+    "title": "Zmienne",
+    "add": "Dodaj zmienna",
+    "name": "Nazwa",
+    "value": "Wartość",
+    "actions": "Akcje",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "edit-var": "Edytuj zmienną:",
+    "edit-add": "Dodaj zmienną:",
+    "var-name": "Nazwa zmiennej:",
+    "var-val": "Wartość zmiennej:",
+    "cancel": "Anuluj",
+    "save": "Zapisz"
+  },
+  "ResponseStatus": {
+    "Status": "Status",
+    "Size": "Rozmiar",
+    "Time": "Czas"
+  },
+  "QueryBody": {
+    "Headers": "Nagłówki",
+    "Content-Type": "Typ treści",
+    "Body": "Treść"
+  },
+  "GeneratedCode": {
+    "GeneratedCode": "Wygenerowany kod",
+    "Language": "Język"
+  },
+  "Response": {
+    "Response": "Odpowiedź",
+    "Headers": "Nagłówki"
+  }
+}

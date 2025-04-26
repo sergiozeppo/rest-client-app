@@ -1,0 +1,113 @@
+{
+  "HomePage": {
+    "title": "Hello!"
+  },
+  "Header": {
+    "sign_in": "Sign In",
+    "sign_up": "Sign up",
+    "main": "Main Page",
+    "logout": "Logout",
+    "history": "History",
+    "variables": "Variables",
+    "welcome": "Welcome, {username}",
+    "rest-client": "Rest Client"
+  },
+  "Footer": {
+    "Rights": "All rights reserved"
+  },
+  "ButtonGO": {
+    "go": "GO"
+  },
+  "About": {
+    "subtitle": "The modern way to test and manage your RESTful APIs! Never stop exploring, neverREST!",
+    "why": "Why NeverREST?",
+    "feature-fast": "Fast & Intuitive",
+    "feature-fast-desc": "Send API requests instantly and get real-time responses with beautiful formatting.",
+    "feature-global": "Internationalization",
+    "feature-global-desc": "Use the app in your preferred language with full i18n support.",
+    "feature-auth": "Authentication",
+    "feature-auth-desc": "Secure access with modern auth patterns like OAuth, JWT, and more.",
+    "feature-history": "History Tracking",
+    "feature-history-desc": "Every request is saved — review and re-run any of them whenever you need.",
+    "feature-headers": "Custom Headers",
+    "feature-headers-desc": "Full support for headers, tokens, cookies, and more.",
+    "feature-rest": "REST & Beyond",
+    "feature-rest-desc": "Support for REST and more out of the box.",
+    "team-title": "Meet the Team",
+    "sergey": "TypeScript wizard, UI/UX and Open Source enthusiast.",
+    "kamil": "Supabase maestro, validation and registration guru.",
+    "viktor": "Fullstack innovator, UI/UX enthusiast and simply genius."
+  },
+  "Sign-up": {
+    "title": "Get started",
+    "subtitle": "Create new account",
+    "divider": "or",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+    "github": "Continue with GitHub",
+    "sign-up": "Sign up",
+    "account": "Already have an account?",
+    "redirect": "Sign In Now"
+  },
+  "Sign-in": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to your account",
+    "divider": "or",
+    "email": "Email",
+    "password": "Password",
+    "github": "Continue with GitHub",
+    "submit": "Sign in",
+    "account": "Don't have an account?",
+    "redirect": "Sign Up Now"
+  },
+  "QueryParameters": {
+    "title": "Query Parameters",
+    "delete": "Delete",
+    "add": "Add Query Parameter",
+    "key": "Key",
+    "value": "Value"
+  },
+  "History": {
+    "title": "Query History",
+    "delete": "Delete",
+    "deleteAll": "Delete All",
+    "empty": "You haven't executed any requests. It's empty here. You can try our",
+    "rest-client": "Rest Client"
+  },
+  "Variables": {
+    "rest": "Rest Client",
+    "title": "Variables",
+    "add": "Add Variable",
+    "name": "Name",
+    "value": "Value",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "edit-var": "Edit Variable:",
+    "edit-add": "Add Variable",
+    "var-name": "Variable Name:",
+    "var-val": "Variable Value:",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "ResponseStatus": {
+    "Status": "Status",
+    "Size": "Size",
+    "Time": "Time"
+  },
+  "QueryBody": {
+    "Headers": "Headers",
+    "Content-Type": "Content-Type",
+    "Body": "Body"
+  },
+  "GeneratedCode": {
+    "GeneratedCode": "Generated Code",
+    "Language": "Language"
+  },
+  "Response": {
+    "Response": "Response",
+    "Headers": "Headers"
+  }
+}
